@@ -1,3 +1,21 @@
+# Created by https://www.toptal.com/developers/gitignore/api/latex,jupyternotebooks
+# Edit at https://www.toptal.com/developers/gitignore?templates=latex,jupyternotebooks
+
+### JupyterNotebooks ###
+# gitignore template for Jupyter Notebooks
+# website: http://jupyter.org/
+
+.ipynb_checkpoints
+*/.ipynb_checkpoints/*
+
+# IPython
+profile_default/
+ipython_config.py
+
+# Remove previous ipynb_checkpoints
+#   git rm -r .ipynb_checkpoints/
+
+### LaTeX ###
 ## Core latex/pdflatex auxiliary files:
 *.aux
 *.lof
@@ -108,6 +126,9 @@ acs-*.bib
 *.glg
 *.glo
 *.gls
+*.*-glg
+*.*-glo
+*.*-gls
 *.glsdefs
 *.lzo
 *.lzs
@@ -154,6 +175,7 @@ acs-*.bib
 *.maf
 *.mlf
 *.mlt
+*.mtc
 *.mtc[0-9]*
 *.slf[0-9]*
 *.slt[0-9]*
@@ -274,3 +296,17 @@ TSWLatexianTemp*
 
 # Makeindex log files
 *.lpz
+
+# REVTeX puts footnotes in the bibliography by default, unless the nofootinbib
+# option is specified. Footnotes are the stored in a file with suffix Notes.bib.
+# Uncomment the next line to have this generated file ignored.
+#*Notes.bib
+
+### LaTeX Patch ###
+# LIPIcs / OASIcs
+*.vtc
+
+# glossaries
+*.glstex
+
+# End of https://www.toptal.com/developers/gitignore/api/latex,jupyternotebooks

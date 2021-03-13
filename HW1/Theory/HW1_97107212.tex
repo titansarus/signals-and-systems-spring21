@@ -1,0 +1,1043 @@
+\documentclass[12pt]{article}
+\usepackage{graphicx,import}
+\usepackage[svgnames]{xcolor} 
+\usepackage{fancyhdr}
+\usepackage{subfig}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{cite}
+\usepackage[many]{tcolorbox}
+\usepackage{listings }
+\usepackage[a4paper, total={6in, 8in} , bottom = 25mm , top = 25mm, headheight = 1.25cm , includehead,includefoot,heightrounded ]{geometry}
+\usepackage{afterpage}
+\usepackage{amssymb}
+\usepackage{pdflscape}
+\usepackage{gensymb}
+\usepackage{textcomp}
+\usepackage{tikz,pgfplots}
+\usepackage{xecolor}
+\usepackage{rotating}
+\usepackage{pdfpages}
+\usepackage[Kashida]{xepersian}
+\usepackage[T1]{fontenc}
+\usepackage{tikz}
+\usepackage[utf8]{inputenc}
+\usepackage{PTSerif} 
+\usepackage{seqsplit}
+
+\usepackage[edges]{forest}
+
+\usepackage{listings}
+\usepackage{xcolor}
+
+\hypersetup{
+	colorlinks   = true, %Colours links instead of ugly boxes
+	urlcolor     = blue, %Colour for external hyperlinks
+	linkcolor    = blue, %Colour of internal links
+	citecolor   = red %Colour of citations
+}
+ 
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+ 
+\NewDocumentCommand{\codeword}{v}{
+\texttt{\textcolor{blue}{#1}}
+}
+\lstset{language=java,keywordstyle={\bfseries \color{blue}}}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\normalsize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+\lstset{style=mystyle}
+
+\settextfont[Scale=1.2 ,BoldFont={Bahij Nazanin-Bold.ttf} , ItalicFont = {IRNazaninIranic.ttf}]{Bahij Nazanin-Regular.ttf}
+\setlatintextfont[Scale = 1.0]{Garamond}
+\DefaultMathsDigits 
+\DeclareMathSizes{11}{19}{13}{9} 
+%\DeclareMathSizes{12}{14.4}{8}{9}
+
+
+
+
+
+\newenvironment{changemargin}[2]{%
+\begin{list}{}{%
+\setlength{\topsep}{0pt}%
+\setlength{\leftmargin}{#1}%
+\setlength{\rightmargin}{#2}%
+\setlength{\listparindent}{\parindent}%
+\setlength{\itemindent}{\parindent}%
+\setlength{\parsep}{\parskip}%
+}%
+\item[]}{\end{list}}
+
+
+\definecolor{foldercolor}{RGB}{124,166,198}
+
+\tikzset{pics/folder/.style={code={%
+    \node[inner sep=0pt, minimum size=#1](-foldericon){};
+    \node[folder style, inner sep=0pt, minimum width=0.3*#1, minimum height=0.6*#1, above right, xshift=0.05*#1] at (-foldericon.west){};
+    \node[folder style, inner sep=0pt, minimum size=#1] at (-foldericon.center){};}
+    },
+    pics/folder/.default={20pt},
+    folder style/.style={draw=foldercolor!80!black,top color=foldercolor!40,bottom color=foldercolor}
+}
+
+\forestset{is file/.style={edge path'/.expanded={%
+        ([xshift=\forestregister{folder indent}]!u.parent anchor) |- (.child anchor)},
+        inner sep=1pt},
+    this folder size/.style={edge path'/.expanded={%
+        ([xshift=\forestregister{folder indent}]!u.parent anchor) |- (.child anchor) pic[solid]{folder=#1}}, inner xsep=0.6*#1},
+    folder tree indent/.style={before computing xy={l=#1}},
+    folder icons/.style={folder, this folder size=#1, folder tree indent=3*#1},
+    folder icons/.default={12pt},
+}
+
+\begin{document}
+
+
+%%% title pages
+\begin{titlepage}
+\begin{center}
+        
+\vspace*{0.7cm}
+
+\includegraphics[width=0.4\textwidth]{sharif1.png}\\
+\vspace{0.5cm}
+\textbf{ \Huge{\emph ‌سیگنال‌ها و سیستم‌ها} }\\
+\vspace{0.5cm}
+\textbf{ \Large{ تمرین اول} }
+\vspace{0.2cm}
+       
+ 
+      \large \textbf{دانشکده مهندسی کامپیوتر}\\\vspace{0.2cm}
+    \large   دانشگاه صنعتی شریف\\\vspace{0.2cm}
+       \large   ﻧﯿﻢ سال دوم 00-99 \\\vspace{0.2cm}
+      \noindent\rule[1ex]{\linewidth}{1pt}
+استاد:\\
+    \textbf{{جناب آقای دکتر منظوری شلمانی}}
+
+
+    \vspace{0.15cm}
+نام و نام خانوادگی:\\
+
+       
+    \textbf{{امیرمهدی نامجو - 97107212}}
+\end{center}
+\end{titlepage}
+%%% title pages
+
+
+%%% header of pages
+\newpage
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot{}
+\cfoot{\thepage}
+\chead{تمرین اول}
+\rhead{\includegraphics[width=0.1\textwidth]{sharif.png}}
+\lhead{امیرمهدی نامجو}
+%%% header of pages
+
+\KashidaOff
+
+\section{سوال اول}
+
+\begin{enumerate}[label = \Alph*)]
+	
+	\item
+	
+	خیر متناوب نیست. زیرا در $t<0$ دائما صفر است. هر چند در بعد از آن دوره تناوب $2\pi$ پیدا‌ می‌کند اما در کل متناوب نیست.
+	
+	\item
+	
+	خیر متناوب نیست. دلیل این موضوع به خاطر این است که این تابع در همه نقاط برابر $1$ است به جز در نقطه $0$ که برابر $2$ است. در نتیجه نمی‌توان دوره تناوبی برای آن ارائه داد. اگر در نقطه $0$ هم برابر $1$ بود دوره تناوب آن $1$ می‌شد ولی به هر حال این طور نیست.
+	
+	\item
+	
+	بله. تابع داده شده به این صورت رفتار می‌کند:
+	
+	$$x[0] =  \sum \delta[0-4k] - \delta[-1 - 4k] = 1$$
+	به خاطر نقطه $k=0$
+	
+	$$x[1] = \sum \delta[1 - 4k] - \delta[0 - 4k] = -1$$
+	به خاطر نقطه $k=0$
+	
+	$$x[2] =  \sum \delta[2-4k] - \delta[1 - 4k] = 0$$
+	در هیچ $k$ای درون پرانتز دلتا صفر نمی‌شود.
+	
+	$$x[3] =  \sum \delta[3-4k] - \delta[2 - 4k] = 0$$
+	در هیچ $k$ای درون پرانتز دلتا صفر نمی‌شود.
+	
+	پس از این، دوباره همین روند با استدلال مشابه برای $k$‌های یکی بیش‌تر تکرار می‌شود. (برای قبل از $0$ هم همین طور)
+	
+	در نتیجه متناوب بوده و دوره تناوب $4$ است. 
+	
+	\pgfplotsset{
+		standard/.style={%Axis format configuration
+			axis x line=middle,
+			axis y line=middle,
+			enlarge x limits=0.20,
+			enlarge y limits=0.20,
+			every axis x label/.style={at={(current axis.right of origin)},anchor=north west},
+			every axis y label/.style={at={(current axis.above origin)},anchor=north east},
+			every axis plot post/.style={mark options={fill=white}}
+		}
+	}
+	\begin{center}
+		\begin{tikzpicture}
+			\begin{axis}[%
+				standard,
+				domain = -10:10,
+				samples = 21,
+				xlabel={$n$},
+				ylabel={$x[n]$},
+				ymin=-2,
+				ymax=2]
+				\addplot+[ycomb,black,thick] {(x>=0)? ((mod(x,4) ==0)?1:((mod(x,4) ==1)? -1 : ((mod(x,4) ==2)? 0 :((mod(x,3) ==0)?0 :0)))) : ((mod(4-x,4) ==0)?1:((mod(4-x,4) ==1)? -1 : ((mod(4-x,4) ==2)? 0 :((mod(4-x,3) ==0)?0 :0)))) };
+			\end{axis}
+		\end{tikzpicture}
+	\end{center}
+	
+\end{enumerate}
+
+\newpage
+
+\section{سوال دوم}
+
+سیگنال داده شده به این صورت رفتار می‌کند که عبارت جمعی جلوی آن به ازای $n\leq 3$ برابر $0$‌است و به ازای $n\geq 4$ برابر $1$‌ می‌شود.
+
+\[ x[n] = \begin{cases} 
+	1 & n \leq 3 \\
+	 \\
+	0 & n > 3 
+\end{cases}
+\]
+
+در نتیجه ظاهر تابع مشابه یک تابع پله واحد است که حول محور $y$ دوران یافته و پس از دوران $3$ واحد هم شیفت به راست خورده است.
+
+$$x[n] = u[- (x-3)]= u[-x +3]$$
+
+پس
+$$M = -1 , n_0 = -3$$
+
+\pgfplotsset{
+	standard/.style={%Axis format configuration
+		axis x line=middle,
+		axis y line=middle,
+		enlarge x limits=0.20,
+		enlarge y limits=0.20,
+		every axis x label/.style={at={(current axis.right of origin)},anchor=north west},
+		every axis y label/.style={at={(current axis.above origin)},anchor=north east},
+		every axis plot post/.style={mark options={fill=white}}
+	}
+}
+\begin{center}
+	\begin{tikzpicture}
+		\begin{axis}[%
+			standard,
+			domain = -10:10,
+			samples = 21,
+			xlabel={$n$},
+			ylabel={$x[n]$},
+			ymin=0,
+			ymax=2]
+			\addplot+[ycomb,black,thick] {(x>3)?0:1};
+		\end{axis}
+	\end{tikzpicture}
+\end{center}
+
+\newpage
+
+\section{سوال سوم}
+
+\begin{enumerate}[label = \Alph*)]
+	
+	\item
+	خیر بی‌حافظه نیست چون مقدار $y[n]$ به مقادیر قبلی $x[n]$ یعنی در این جا $x[n-2]$ بستگی دارد.
+	
+	\item
+	
+	$$y[n] = A^2 \delta[n]\delta[n-2]$$
+	
+	حاصل ضرب دو دلتا در نقاط مختلف با یکدیگر همواره صفر است. در هر نقطه‌ای که در نظر بگیریم، یکی از دو دلتای نوشته شده صفر خواهد بود. در نتیجه
+	$$y[n] = 0~~~; \forall n \in \mathbb{Z}$$
+	
+	\item
+	خیر معکوس‌پذیر نیست. با توجه به نتیجه بخش قبل، می‌توان به این نتیجه رسید که این سیستم به ازای تمامی ورودی‌ها به فرم  $A \delta[n-k]$ مقدار صفر را خروجی ‌می‌دهد. در نتیجه نمی‌توان از روی خروجی، به طور یکتا ورودی را تعیین کرد. در نتیجه معکوس‌پذیر نیست.
+\end{enumerate}
+
+
+\newpage
+\section{سوال چهارم}
+
+سیگنال مرجع:
+
+\pgfplotsset{
+	standard/.style={%Axis format configuration
+		axis x line=middle,
+		axis y line=middle,
+		enlarge x limits=0.20,
+		enlarge y limits=0.20,
+		every axis x label/.style={at={(current axis.right of origin)},anchor=north west},
+		every axis y label/.style={at={(current axis.above origin)},anchor=north east},
+		every axis plot post/.style={mark options={fill=black}}
+	}
+}
+\begin{center}
+	\begin{tikzpicture}
+		\begin{axis}[%
+			standard,
+			domain = -6:6,
+			samples = 13,
+			xlabel={$n$},
+			ylabel={$x[n]$},
+			ymin=-2,
+			ymax=2]
+			\addplot+[ycomb,black,thick] {(x==-4)?-1:
+				((x==-3)?-1/2:
+				((x==-2)?1/2:
+				((x==-1)?1:
+				((x==0)?1:
+				((x==1)?1:
+				((x==2)?1:
+				((x==3)?1/2:0)))))))};
+		\end{axis}
+	\end{tikzpicture}
+\end{center}
+
+
+\begin{enumerate}[label = \harfi*)]
+
+\item
+$x[n-4]$
+
+\pgfplotsset{
+	standard/.style={%Axis format configuration
+		axis x line=middle,
+		axis y line=middle,
+		enlarge x limits=0.20,
+		enlarge y limits=0.20,
+		every axis x label/.style={at={(current axis.right of origin)},anchor=north west},
+		every axis y label/.style={at={(current axis.above origin)},anchor=north east},
+		every axis plot post/.style={mark options={fill=black}}
+	}
+}
+\begin{center}
+	\begin{tikzpicture}
+		\begin{axis}[%
+			standard,
+			domain = -9:9,
+			samples = 19,
+			xlabel={$n$},
+			ylabel={$x[n]$},
+			ymin=-2,
+			ymax=2]
+			\addplot+[ycomb,black,thick] {(x-4==-4)?-1:
+				((x-4==-3)?-1/2:
+				((x-4==-2)?1/2:
+				((x-4==-1)?1:
+				((x-4==0)?1:
+				((x-4==1)?1:
+				((x-4==2)?1:
+				((x-4==3)?1/2:0)))))))};
+		\end{axis}
+	\end{tikzpicture}
+\end{center}
+
+\item
+$x[n]u[3-n] = x[n]$ 
+
+
+
+\pgfplotsset{
+	standard/.style={%Axis format configuration
+		axis x line=middle,
+		axis y line=middle,
+		enlarge x limits=0.20,
+		enlarge y limits=0.20,
+		every axis x label/.style={at={(current axis.right of origin)},anchor=north west},
+		every axis y label/.style={at={(current axis.above origin)},anchor=north east},
+		every axis plot post/.style={mark options={fill=black}}
+	}
+}
+\begin{center}
+	\begin{tikzpicture}
+		\begin{axis}[%
+			standard,
+			domain = -6:6,
+			samples = 13,
+			xlabel={$n$},
+			ylabel={$x[n]$},
+			ymin=-2,
+			ymax=2]
+			\addplot+[ycomb,black,thick] {(3-x<0)?0:((x==-4)?-1:
+				((x==-3)?-1/2:
+				((x==-2)?1/2:
+				((x==-1)?1:
+				((x==0)?1:
+				((x==1)?1:
+				((x==2)?1:
+				((x==3)?1/2:0))))))))};
+		\end{axis}
+	\end{tikzpicture}
+\end{center}
+
+
+\item
+$x[3-n]$
+
+\pgfplotsset{
+	standard/.style={%Axis format configuration
+		axis x line=middle,
+		axis y line=middle,
+		enlarge x limits=0.20,
+		enlarge y limits=0.20,
+		every axis x label/.style={at={(current axis.right of origin)},anchor=north west},
+		every axis y label/.style={at={(current axis.above origin)},anchor=north east},
+		every axis plot post/.style={mark options={fill=black}}
+	}
+}
+\begin{center}
+	\begin{tikzpicture}
+		\begin{axis}[%
+			standard,
+			domain = -2:7,
+			samples = 10,
+			xlabel={$n$},
+			ylabel={$x[n]$},
+			ymin=-2,
+			ymax=2]
+			\addplot+[ycomb,black,thick] {(3-x==-4)?-1:
+				((3-x==-3)?-1/2:
+				((3-x==-2)?1/2:
+				((3-x==-1)?1:
+				((3-x==0)?1:
+				((3-x==1)?1:
+				((3-x==2)?1:
+				((3-x==3)?1/2:0)))))))};
+		\end{axis}
+	\end{tikzpicture}
+\end{center}
+
+
+\item
+$x[n-2]\delta[n-2]$
+
+\pgfplotsset{
+	standard/.style={%Axis format configuration
+		axis x line=middle,
+		axis y line=middle,
+		enlarge x limits=0.20,
+		enlarge y limits=0.20,
+		every axis x label/.style={at={(current axis.right of origin)},anchor=north west},
+		every axis y label/.style={at={(current axis.above origin)},anchor=north east},
+		every axis plot post/.style={mark options={fill=black}}
+	}
+}
+\begin{center}
+	\begin{tikzpicture}
+		\begin{axis}[%
+			standard,
+			domain = -1:4,
+			samples = 6,
+			xlabel={$n$},
+			ylabel={$x[n]$},
+			ymin=-2,
+			ymax=2]
+			\addplot+[ycomb,black,thick] {(x==2)?1:0};
+		\end{axis}
+	\end{tikzpicture}
+\end{center}
+
+\item
+$\frac{1}{2}x[n] + \frac{1}{2}(-1)^n x[n]$
+
+
+\pgfplotsset{
+	standard/.style={%Axis format configuration
+		axis x line=middle,
+		axis y line=middle,
+		enlarge x limits=0.20,
+		enlarge y limits=0.20,
+		every axis x label/.style={at={(current axis.right of origin)},anchor=north west},
+		every axis y label/.style={at={(current axis.above origin)},anchor=north east},
+		every axis plot post/.style={mark options={fill=black}}
+	}
+}
+\begin{center}
+	\begin{tikzpicture}
+		\begin{axis}[%
+			standard,
+			domain = -6:6,
+			samples = 13,
+			xlabel={$n$},
+			ylabel={$x[n]$},
+			ymin=-2,
+			ymax=2]
+			\addplot+[ycomb,black,thick] {(x==-4)?-1:
+				((x==-3)?0:
+				((x==-2)?1/2:
+				((x==-1)?0:
+				((x==0)?1:
+				((x==1)?0:
+				((x==2)?1:
+				((x==3)?0:0)))))))};
+		\end{axis}
+	\end{tikzpicture}
+\end{center}
+
+\item
+
+$x[(n-1)^2]$
+
+
+\pgfplotsset{
+	standard/.style={%Axis format configuration
+		axis x line=middle,
+		axis y line=middle,
+		enlarge x limits=0.20,
+		enlarge y limits=0.20,
+		every axis x label/.style={at={(current axis.right of origin)},anchor=north west},
+		every axis y label/.style={at={(current axis.above origin)},anchor=north east},
+		every axis plot post/.style={mark options={fill=black}}
+	}
+}
+\begin{center}
+	\begin{tikzpicture}
+		\begin{axis}[%
+			standard,
+			domain = -6:6,
+			samples = 13,
+			xlabel={$n$},
+			ylabel={$x[n]$},
+			ymin=-2,
+			ymax=2]
+			\addplot+[ycomb,black,thick] {((x-1)*(x-1)==-4)?-1:
+				(((x-1)*(x-1)==-3)?-1/2:
+				(((x-1)*(x-1)==-2)?1/2:
+				(((x-1)*(x-1)==-1)?1:
+				(((x-1)*(x-1)==0)?1:
+				(((x-1)*(x-1)==1)?1:
+				(((x-1)*(x-1)==2)?1:
+				(((x-1)*(x-1)==3)?1/2:0)))))))};
+		\end{axis}
+	\end{tikzpicture}
+\end{center}
+
+\end{enumerate}
+
+
+
+\newpage
+\section{سوال پنجم}
+
+\begin{enumerate}[label = \harfi*)]
+
+\item
+
+$$
+y(t) =\int_{-\infty}^{2 t} x(\tau) d \tau
+$$
+
+\begin{itemize}
+	\item
+ بی‌حافظه: خیر. با توجه به این که انتگرال گرفته شده است، یعنی مقادیر در زمان‌های قبلی هم اهمیت داشته اند. پس حافظه دار است.
+	\item
+تغییرناپذیر با زمان: خیر. با توجه به نقش زمان در خود حدود انتگرال، تغییرپذیر با زمان است. مثلا اگر ورودی اول ما $x(\tau)$ باشد و خروجی آن $y(t)$ باشد و ورودی را شیفت بدهیم به صورت
+$x(\tau - T)$
+در آن صورت خروجی
+$\int_{-\infty}^{2t} x(\tau - T) d\tau$
+خواهد بود که برابر با $y(t-T)$ نیست.
+	\item
+خطی: بله. با توجه به خطی بودن انتگرال و این که درون انتگرال هم عبارت غیر خطی ظاهر نشده، خطی است.
+	\item
+علّی: خیر. در زمان $t$ به مقادیر سیگنال در زمان‌های بعدتر یعنی $t$ تا $2t$ هم نیاز داشته‌ایم. یعنی سیستم از آینده هم تاثیر می‌بیند. در نتیجه دو ورودی یکسان که تا نقطه‌ای خاص با هم برابر باشند، لزوما تا همان نقطه خروجی برابری تولید نمی‌کنند و بسته به آینده خود خروجی هر یک متفاوت خواهد بود.
+	\item
+پایدار: خیر. پایدار هم نیست. مثلا تابع $u[-t]$ را به آن بدهید. با توجه به وجود انتگرال از $-\infty$ خروجی آن بی‌کران خواهد بود.
+\end{itemize}
+
+
+\item
+
+$$
+y(t) = \frac{d x(t)}{t}
+$$
+
+\begin{itemize}
+	\item
+	بی‌حافظه: خیر. در تعریف مشتق چنین چیزی را داریم:
+	$$\lim_{h \to 0} \frac{x(t) - x(t-h)}{h}$$
+	در نتیجه هر‌چند کوچک، اما مقدار مشتق به مقادیر قبلی سیگنال بستگی دارد و به طور مستقل صرفا براساس زمان فعلی تعیین نمی‌شود.
+	\item
+	تغییرناپذیر با زمان: بله. خود زمان نقشی در تابع ندارد. در نتیجه تغییر ناپذیر در زمان است. به بیان دیگر اگر مثلا ورودی را برای زمان $x(t-T)$ به سیستم بدهیم خروجی هم
+	$\frac{d x(t-T)}{dt} = y(t-T)$
+	خواهد بود و به همان اندازه شیفت می‌خورد.
+	
+	\item
+	خطی: بله. خطی است. به طور کلی مشتق با توجه به آن چه از حساب دیفرانسیل و انتگرال می دانیم رفتار خطی دارد و از آن جایی که المان غیرخطی در این جا وارد نشده و صرفا یک مشتق ساده است، خطی خواهد بود.
+	\item
+	علّی: 
+	بله علی است. 
+		$$\lim_{h \to 0} \frac{x(t) - x(t-h)}{h}$$
+		یعنی صرفا با مقادیر قبلی سیگنال ورودی می توان مشتق را بدست آورد. البته در تعاریف دیگری از مشتق، براساس مقدار بعدی سیگنال هم می‌توان این کار را کرد اما همین که براساس مقادیر قبلی هم می‌توان تعیین کرد نشان دهنده علی بودن است.
+	\item
+	پایدار: خیر. پایدار نیست. مثلا سیگنالی را در نظر بگیرید که برای $-1<t<1$ مقدار آن
+	$\sqrt{1-t^2}$
+	و در غیر این صورت $0$ باشد. این سیگنال کران‌دار است اما مشتق آن
+	$\frac{-t}{\sqrt{1-t^2}}$
+	در نزدیکی $1$ کران‌دار نیست. پس پایدار نیست.
+	
+	
+
+\end{itemize}
+
+
+\item
+$$
+y(t)=\left\{\begin{array}{ll}
+	0, & x(t)<0 \\
+	x(t)+x(t-2), & x(t) \geq 0
+\end{array}\right.
+$$
+
+
+\begin{itemize}
+	\item
+	بی‌حافظه: خیر. به وضوح بی حافظه نیست.  در $x(t)\geq0$ به مقادیر قبلی وابسته است.
+	\item
+	تغییرناپذیر با زمان:  بله.
+	
+	 یک شیفت به اندازه $t_0$ آن را به این شکل در می‌آورد:
+	 
+	 $$
+	 y\left(t-t_{0}\right)=\left\{\begin{array}{ll}
+	 	0, & x\left(t-t_{0}\right)<0 \\
+	 	x\left(t-t_{0}\right)+x\left(t-t_{0}-2\right), & x\left(t-t_{0}\right) \geq 0
+	 \end{array}\right.
+	 $$
+	 
+	 این دقیقا معادل این است که $x(t-t_0)$ را به عنوان ورودی به مسئله بدهیم. در نتیجه تغییرناپذیر در زمان است.
+ 
+	\item
+	خطی:  بله خطی است. فرض کنید پاسخ برای $x_1$ و $x_2$ به صورت زیر باشد:
+	
+	$$
+	\begin{array}{ll}
+		y_{1}(t) & =\left\{\begin{array}{ll}
+			0, & x_{1}(t)<0 \\
+			x_{1}(t)+x_{1}(t-2), & x_{1}(t) \geq 0
+		\end{array}\right. \\
+		y_{2}(t) & =\left\{\begin{array}{ll}
+			0, & x_{2}(t)<0 \\
+			x_{2}(t)+x_{2}(t-2), & x_{2}(t) \geq 0
+		\end{array}\right.
+	\end{array}
+	$$
+	
+	همچنین تعریف می‌کنیم:
+	$$x_3(t) = \alpha x_1(t) + \beta x_2(t)$$
+	
+	در نتیجه
+	
+	$$
+	\begin{array}{l}
+		y_{3}(t)=\left\{\begin{array}{ll}
+			0, & x_{3}(t)<0 \\
+			x_{3}(t)+x_{3}(t-2), & x_{3}(t) \geq 0
+		\end{array}\right. \\
+		y_{3}(t)=\left\{\begin{array}{ll}
+			0, & x_{3}(t)<0 \\
+			\alpha x_{1}(t)+\beta x_{2}(t)+\alpha x_{1}(t-2)+\beta x_{2}(t-2), & x_{3}(t) \geq 0
+		\end{array}\right. \\
+		y_{3}(t)=\left\{\begin{array}{ll}
+			0, & \left\{\alpha x_{1}(t)+\beta x_{2}(t)\right\}<0 \\
+			\alpha x_{1}(t)+\alpha x_{1}(t-2)+\beta x_{2}(t)+\beta x_{2}(t-2), & \left\{\alpha x_{1}(t)+\beta x_{2}(t)\right\} \geq 0
+		\end{array}\right. \\
+		y_{3}(t)=\left\{\begin{array}{ll}
+			0, & \left\{\alpha x_{1}(t)+\beta x_{2}(t)\right\}<0 \\
+			\alpha y_{1}(t)+\beta y_{2}(t), & \left\{\alpha x_{1}(t)+\beta x_{2}(t)\right\} \geq 0
+		\end{array}\right.
+	\end{array}
+	$$
+	\item
+	علّی: بله. به وضوح علی است چون وابستگی به مقادیر بعدی یک سیگنال برای بدست آوردن پاسخ آن در لحظه‌ای خاص نداریم.
+	\item
+	پایدار: به صورت قدر مطلقی در نظر می‌گیریم. اگر
+	$\forall t; |x(t)| < \infty$
+	آن‌گاه:
+	
+	$$
+	|y(t)| \leq\left\{\begin{array}{ll}
+		0, & |x(t)|<0 \\
+		|x(t)|+|x(t-2)|, & |x(t)| \geq 0
+	\end{array}\right.
+	$$
+	
+	و از آن جایی که جمع دو مقدار کران‌دار، کران‌دار است پس $|y(t)|$ هم کران‌دار بوده و خود $y(t)$ هم کران‌دار خواهد بود.
+	
+	
+\end{itemize}
+
+
+
+
+\item
+$y[n] = n x[n]$
+\begin{itemize}
+	\item
+	بی‌حافظه: بله. واضح است که وابستگی به زمان‌های قبلی وجود ندارد. در نتیجه بی حافظه است.
+	\item
+	تغییرناپذیر با زمان: 
+	خیر. مثلا 
+	$y[n-n_0] = (n - n_0) x[n - n_0]$
+	
+	اما در صورتی که ورودی صرفا شیفت بخورد و تبدیل به $x[n-n_0]$ بشود و به عنوان ورودی سیستم داده بشود، خروجی به صورت
+	$y[n]= n x[n-n_0]$
+	خواهد بود که این دو حالت برابر نیستند.
+	
+	در 
+	\item
+	خطی: بله. مثلا دو سیگنال
+	$x_1[n],x_2[n]$
+	را در نظر بگیرید.
+	$$y_1[n] = nx_1[n] ~~ , ~~ y_2[n] = n x_2[n]$$
+	
+	حال سیگنال سوم
+	$x_3 [n] = \alpha x_1[n] + \beta x_2 [n]$
+	را در نظر بگیرید.
+	$$y_3[n] = n x_3[n] = n \alpha x_1[n] + n \beta x_2[n] = \alpha y_1[n] + \beta y_2[n]$$
+	
+	پس خطی است.
+	\item
+	علّی: بله. هیچ وابستگی به مقادیر سیگنال ورودی در آینده وجود ندارد. به عبارتی به وضوح اگر دو سیگنال ورودی از $-\infty$ تا $n_0$ با هم برابر باشند، خروجی آن‌ها هم تا آن لحظه با هم برابر خواهد بود. 
+	\item
+	پایدار: خیر پایدار نیست. حتی با وجود کراندار در نظر گرفتن $x[n]$ به دلیل وجود ضریب $n$، اگر مثلا یک سیگنال ثابت نظیر $x[n]=1$ را هم بدهیم، خروجی کراندار نخواهد بود.
+\end{itemize}
+
+
+
+\item
+$y[n] = x[n-2] - 2x[n-8]$
+\begin{itemize}
+	\item
+	بی‌حافظه: به وضوح بی حافظه نیست چون به مقادیر قبلی سیگنال در لحظات قبلی وابسته است.
+	\item
+	تغییرناپذیر با زمان: بله. مثلا سیگنال شیفت یافته خروجی می‌شود:
+	$y[n-n_0] = x[n - n_0 - 2] - 2 x[n - n_0 - 8]$
+از طرفی اگر خود ورودی را هم شیفت بدهیم و به سیستم ورودی
+ $x[n-n_0]$
+ را بدهیم، خروجی می‌شود:
+ $y[n] = x[n-n_0 - 2] - 2 x[n-n_0 - 8]$
+ که این دو با هم برابر هستند. پس تغییر ناپذیر در زمان است.
+	 
+	\item
+	خطی: بله خطی است. مثلا دو سیگنال
+	 $x_1[n],x_2[n]$
+	 را در نظر بگیرید.
+	 $$y_1[n] =x_1[n-2] - 2 x_1[n-8]$$
+	 $$y_2[n] =x_2[n-2] - 2 x_2[n-8]$$
+	 حال سیگنال
+	 $x_3[n] = \alpha x_1[n] + \beta x_2[n]$
+	 را در نظر بگیرید.
+	 
+	 $$y_3[n] = x_3[n-2] - 2 x_3[n-8]$$
+	 
+	 $$y_3[n] = \alpha x_1[n-2] + \beta x_2[n-2] - 2\alpha x_1[n-8] - 2 \beta x_2[n-8]$$
+	 
+	 $$y_3[n] = \alpha y_1[n] + \beta y_2[n]$$
+	 
+	 پس خطی است.
+	\item
+	علّی: بله. علی است. چون به مقادیر سیگنال در آینده وابسته نیست. 
+	\item
+	پایدار: بله. اگر $x[n]$ را در همه نقاط کراندار در نظر بگیریم، به وضوح $x[n-2]$ و $x[n-8]$ هم جزو همین نقاط هستند و کراندار هستند. و جمع و تفریق دو عدد کراندار هم همواره کراندار خواهد بود. در نتیجه $y[n]$ هم کراندار است. به شکل ریاضیاتی اگر
+	$\forall n; |x[n]|<\infty$ آنگاه
+	
+	$$|y[n]| = |x[n-2] - 2x[n-8]| \leq |x[n-2]| - 2|x[n-8]| \leq \infty$$
+\end{itemize}
+
+
+\item
+$$
+y[n]=\left\{\begin{array}{lc}
+	x[n], & n \geq 1 \\
+	0, & n=0 \\
+	x[n+1], & n \leq-1
+\end{array}\right.
+$$
+\begin{itemize}
+	\item
+	بی‌حافظه: خیر. سیستمی بی حافظه است که مقدار آن در یک لحظه فقط به مقدار ورودی در آن لحظه بستگی داشته باشد. در این جا مثلا برای $n=-2$ مقدار $y[-2]$ به $x[-1]$ در آینده بستگی دارد. در نتیجه بی حافظه نیست.
+	\item
+	تغییرناپذیر با زمان: خیر. شیفت داده شده خروجی به صورت زیر می‌شود:
+	
+$$
+y[n-n_0]=\left\{\begin{array}{lc}
+	x[n-n_0], & n-n_0 \geq 1 \\
+	0, & n-n_0=0 \\
+	x[n+1], & n-n_0 \leq-1
+\end{array}\right.
+$$	 
+
+در حالی که اگر صرفا سیگنال ورودی را شیفت دهیم و مقدار 
+$x[n-n_0]$
+را ورودی دهیم به این صورت در می‌آید:
+
+$$
+y[n-n_0]=\left\{\begin{array}{lc}
+	x[n-n_0], & n \geq 1 \\
+	0, & n=0 \\
+	x[n+1], & n \leq-1
+\end{array}\right.
+$$	 
+
+که با قبلی برابر نیست. در نتیجه تغییرپذیر با زمان است.
+	
+	 
+	\item
+	خطی: بله. فرض کنید دو سیگنال ورودی
+	$x_1[n] , x_2[n]$
+	را داشته باشیم.
+	
+	$$
+	y_1[n]=\left\{\begin{array}{lc}
+		x_1[n], & n \geq 1 \\
+		0, & n=0 \\
+		x_1[n+1], & n \leq-1
+	\end{array}\right.
+	$$
+	
+		
+	$$
+	y_2[n]=\left\{\begin{array}{lc}
+		x_2[n], & n \geq 1 \\
+		0, & n=0 \\
+		x_2[n+1], & n \leq-1
+	\end{array}\right.
+	$$
+	
+	سیگنال سوم
+	$x_3[n] = \alpha x_1[n] + \beta x_2[n]$
+	را در نظر بگیرید.
+	
+	
+		$$
+	y_3[n]=\left\{\begin{array}{lc}
+		x_3[n], & n \geq 1 \\
+		0, & n=0 \\
+		x_3[n+1], & n \leq-1
+	\end{array}\right. = 
+\left\{\begin{array}{lc}
+ \alpha x_1[n] + \beta x_2[n], & n \geq 1 \\
+	0, & n=0 \\
+	 \alpha x_1[n+1] + \beta x_2[n+1], & n \leq-1
+\end{array}\right.
+	$$
+	
+	و این معادل با این است که
+	$$y_3[n] = \alpha y_1[n] + \beta y_2[n]$$
+	در نتیجه خطی است.
+	
+	\item
+	علّی: خیر. به وضوع برای $y[-2]$ به مقدار $x[-1]$ نیاز داریم که در آینده قرار دارد.
+	\item
+	پایدار: بله. اگر
+	 $x[n]$
+	 در همه $n$ ها کراندار باشد، به وضوح
+	 $y[n]$
+	 هم کراندار است. زیرا در همه نقاط یا صفر است یا برابر
+	 $x[n]$
+	 یا
+	 $x[n+1]$
+	 در نتیجه کراندار خواهد بود.
+	 
+\end{itemize}
+
+	
+\end{enumerate}
+
+\newpage
+
+\section{سوال ششم}
+
+
+
+\begin{enumerate}[label = \harfi*)]
+	
+	\item
+	$y(t) = cos[x(t)]$
+	
+	خیر معکوس پذیر نیست. دو سیگنال $x_1(t)$ و
+	 $x_2(t) =x_1(t) + 2\pi$
+	یک خروجی را تولید می‌کنند.
+	
+	\item
+	$
+	y(t)=\int_{-\infty}^{t} e^{-(t-\tau)} x(\tau) d \tau
+	$
+	
+	وارون پذیر است. به طور کلی عموما انتگرال گیری عمل وارون‌پذیری است. و وارون آن مشتق است. با استفاده از قانون مشتق انتگرال لایبنیتز، مشتق این انتگرال را حساب‌ می‌کنیم:
+	
+	$$\frac{d}{dt} \int_{-\infty}^{t} e^{-(t - \tau)} x(\tau) d\tau = e^{-(t - t)} x(t) \frac{d t}{dt} - \frac{d (-\infty)}{dt} \dots + \int_{-\infty}^{t} \frac{d}{dt} e^{-(t - \tau)} x(\tau) d\tau $$
+	
+	مشتق منفی بی‌نهایت (صفر در نظر گرفته می‌شود.)
+	$$= x(t) + \int_{-\infty}^{t} e^{-(t-\tau)} x(\tau) d\tau$$
+	
+	در نتیجه معکوس سیستم به صورت زیر است:
+	
+	$$w(t)= x(t) = y(t) + \frac{d y(t)}{dt}$$
+	
+	
+	\item
+	$y[n] = x[2n]$
+	
+	خیر. دلیل این موضوع هم گسسته بودن سیگنال است. اگر سیگنال پیوسته بود وارون پذیر می‌شد. اما در حالت گسسته، مثلا دو سیگنال
+$x[n] = \delta[n]$
+و
+$x[n] = \delta[n] + \delta[n-1]$
+
+در صورتی که به عنوان ورودی داده شوند خروجیشان به این صورت می‌شود:
+
+$$\delta[n] \rightarrow y[n] = \delta[2n] = \delta[n]$$
+
+$$\delta[2n] \rightarrow y[n] = \delta[2n] + \delta[2n-1] = \delta[n]$$
+
+در نتیجه وارون پذیر نیست. توجه کنید که $2n-1$ به ازای هیچ مقدار صحیحی برابر $0$ نمی‌شود.
+
+
+\item
+$$
+\sum_{k=-\infty}^{n}\left(\frac{1}{2}\right)^{n-k} x[k]
+$$
+
+$$
+y[n] =\sum_{k=-\infty}^{n-1}\left(\frac{1}{2}\right)^{n-k} x[k]+\left(\frac{1}{2}\right)^{n-n} x[n]
+$$
+$$
+=\frac{2}{2} \sum_{k=-\infty}^{n-1}\left(\frac{1}{2}\right)^{n-k} x[k]+x[n]
+$$
+
+$$
+=\frac{1}{2} \sum_{k=-\infty}^{n-1}\left(\frac{1}{2}\right)^{n-1-k} x[k]+x[n]
+$$
+
+$$y[n] = \frac{1}{2}y[n-1] + x[n]$$
+
+در نتیجه تابع معکوس به این صورت است:
+
+$$x[n] = y[n] - \frac{1}{2}y[n-1]$$
+
+البته در صورت سوال حدود بی‌نهایت گذاشته شده‌اند. در صورتی که سوال به این صورت باشد	
+
+$$
+y[n] =\sum_{k=-\infty}^{\infty}\left(\frac{1}{2}\right)^{n-k} x[k]
+$$
+
+وارون پذیر نخواهد بود. مثلا فرض کنید که
+$x[n] = \delta[n]$
+باشد. در آن صورت:
+
+$$y[n] = (\frac{1}{2})^n$$
+
+خواهد بود.
+
+حال فرض کنید
+$x[n] = \frac{1}{2} \delta[n-1]$
+باشد.
+
+در این صورت:
+
+$$
+y[n] =\sum_{k=-\infty}^{\infty}\left(\frac{1}{2}\right)^{n-k} \times \frac{1}{2} \delta[k-1]  = (\frac{1}{2})^{n-1} \times \frac{1}{2} \delta[1-1] = (\frac{1}{2})^{n}
+$$
+
+خواهد بود. یعنی دو سیگنال مختلف خروجی یکسان دادند.
+
+\end{enumerate}
+
+
+\section{سوال هفتم}
+
+
+\begin{enumerate}[label = \harfi*)]
+	
+	\item
+	
+	$
+	x(t)=3 \cos \left(4 t+\frac{\pi}{3}\right)
+	$
+	
+	دوره تناوب:
+	$$T= \frac{2\pi}{4} = \frac{\pi}{2}$$
+	
+	
+	\item
+	$x(t) = \sum_{n=-\infty}^{\infty} e^{-(2t -n)}$
+	
+	داریم:
+	
+	$$x(t+T) = \sum_{n=-\infty}^{\infty} e^{-(2(t+T) -n)} = e^{-2T}\sum_{n=-\infty}^{\infty} e^{-(2t -n)}$$
+	
+	واضح است که این سیگنال یک سیگنال نمایی با مقادیر حقیقی است و $j$ هم در توان آن ظاهر نشده است. در نتیجه متناوب نیست.
+	
+	
+	\item
+	
+	$x(t) = \operatorname{Even} (\cos(4\pi t) u(t))$
+	
+	$$x(t) = 
+	\frac{\cos (4 \pi t) u(t)+\cos (-4 \pi t) u(-t)}{2}
+	= \cos(4\pi t)\frac{u(t) + u(-t)}{2} = \frac{\cos(4\pi t)}{2} $$
+
+در نتیجه به یک عبارت کسینوسی ساده رسیدیم.
+
+$$T = \frac{2 \pi}{4 \pi} = \frac{1}{2}$$	
+	
+	
+	\item
+	$x[n] = \sin(\frac{6\pi}{7} n +1)$
+	
+	باید به گسسته بودن سیگنال توجه کرد.
+	
+	$$\frac{\frac{2\pi}{1}}{\frac{6 \pi}{7}} = \frac{7}{3}$$
+	
+	از آن جایی که کسر بالا ساده‌ترین شکل این کسر است، دوره تناوب صورت آن یعنی $N=7$ خواهد بود.
+	
+	شکل دیگر حل سوال به این صورت است:
+	
+	$$\frac{6 \pi}{7} N = 2\pi m$$
+	
+	که ساده‌ترین اعدادی که به دست‌ می‌آید $N=7 , m =3$ است که یعنی دوره تناوب $N=7$ است.
+	
+	\item
+	$x[n] = 2 \cos(\frac{\pi}{4} n) + \sin(\frac{\pi}{8} n) - 2 \cos(\frac{\pi}{2} n + \frac{\pi}{6})$
+	
+	$$T_1 = \frac{2\pi}{\frac{\pi}{4}} = 8 , T_2 = \frac{2\pi}{\frac{\pi}{8}} = 16 , T_3 = \frac{2\pi}{\frac{\pi}{2}} = 4 $$
+	
+	$$N = \operatorname{lcm}(4,8,16) = 16$$
+\end{enumerate}
+
+
+\end{document}
+
+
+
