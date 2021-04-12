@@ -47,6 +47,7 @@
 }
 \lstset{language=java,keywordstyle={\bfseries \color{blue}}}
 
+
 \lstdefinestyle{mystyle}{
     backgroundcolor=\color{backcolour},   
     commentstyle=\color{codegreen},
@@ -550,6 +551,30 @@ $x[(n-1)^2]$
 \newpage
 \section{سوال پنجم}
 
+خلاصه پاسخ: (F به معنی False و T به معنی True)
+
+\begin{center}
+
+
+\begin{table}[h]
+	\resizebox{\textwidth}{!}{%
+		\begin{tabular}{|c|c|c|c|c|c|}
+			\hline
+			عنوان & Memoryless & Time-Invariant & Linear & Causal & Stable \\ \hline
+			الف & F & F & T & F & F \\ \hline
+			ب & F & T & T & T & F \\ \hline
+			پ & F & T & T & T & T \\ \hline
+			ت & T & F & T & T & F \\ \hline
+			ث & F & T & T & T & T \\ \hline
+			ج & F & F & T & F & T \\ \hline
+		\end{tabular}%
+	}
+\end{table}
+
+\end{center}
+
+
+پاسخ کامل:
 \begin{enumerate}[label = \harfi*)]
 
 \item
@@ -569,6 +594,28 @@ $\int_{-\infty}^{2t} x(\tau - T) d\tau$
 خواهد بود که برابر با $y(t-T)$ نیست.
 	\item
 خطی: بله. با توجه به خطی بودن انتگرال و این که درون انتگرال هم عبارت غیر خطی ظاهر نشده، خطی است.
+
+به شکل دقیق‌تر اگر سیگنال‌های ورودی $x_1(t)$ و $x_2(t)$ باشد.
+
+$$
+\begin{array}{l}
+	y_{1}(t)=\int_{-\infty}^{2 t} x_{1}(\tau) d \tau \\
+	y_{2}(t)=\int_{-\infty}^{2 t} x_{2}(\tau) d \tau
+\end{array}
+$$
+
+حال اگر داشته باشیم:
+$x_3(t) = \alpha x_1(t) + \beta x_2(t)$
+داریم:
+
+$$
+\begin{aligned}
+	y_{3}(t) &=\int_{-\infty}^{2 t} x_{3}(\tau) d \tau \\
+	y_{3}(t) &=\int_{-\infty}^{2 t}\left\{\alpha x_{1}(t)+\beta x_{2}(t)\right\} d \tau \\
+	y_{3}(t) &=\alpha \int_{-\infty}^{2 t} x_{1}(\tau) d \tau+\beta \int_{-\infty}^{2 t} x_{2}(\tau) d \tau \\
+	y_{3}(t) &=\alpha y_{1}(t)+\beta y_{2}(t)
+\end{aligned}
+$$
 	\item
 علّی: خیر. در زمان $t$ به مقادیر سیگنال در زمان‌های بعدتر یعنی $t$ تا $2t$ هم نیاز داشته‌ایم. یعنی سیستم از آینده هم تاثیر می‌بیند. در نتیجه دو ورودی یکسان که تا نقطه‌ای خاص با هم برابر باشند، لزوما تا همان نقطه خروجی برابری تولید نمی‌کنند و بسته به آینده خود خروجی هر یک متفاوت خواهد بود.
 	\item
