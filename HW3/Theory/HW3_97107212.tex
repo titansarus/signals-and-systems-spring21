@@ -247,7 +247,84 @@ $$3 y[n+1] - 2y[n] = 3(x[n+1] - 2x[n])$$
 بله چون ROC تابع $H(z)$ آن شامل دایره واحد می شود.
 \end{enumerate}
 
-\section{سوال چهارم}
+\section{سوال پنجم}
+
+
+\begin{enumerate}[label = \Alph*)]
+	\item
+$$
+\begin{array}{c}
+	h[n]=\left\{\begin{array}{ll}
+		a^{n}, & n \geq 0 \\
+		0, & n<0
+	\end{array}\right. \\
+	x[n]=\left\{\begin{array}{lr}
+		1, & 0 \leq n \leq N-1 \\
+		0, & \text { otherwise }
+	\end{array}\right.
+\end{array}
+$$
+
+$$h[n] = a^n u[n] ~~~,~~~ x[n] = u[n] - u[n-N]$$
+
+$$y[n] = x[n] \star h[n]$$
+$$y[n] = \sum_{k=-\infty}^{\infty} x[n] h[n-k] = \sum_{k=-\infty}^{\infty} (u[k] - u[k-N])a^{n-k} u[n-k]=$$
+$$\sum_{k=0}^{N-1} a^{n-k} u[n-k]$$
+
+$$
+=\left\{\begin{array}{ll}
+	0 & n<0 \\
+	\sum_{k=0}^{n} a^{n-k}=\sum_{k=0}^{n} a^{n}\left(\frac{1}{a}\right)^{k} & 0 \leq n \leq N-1 \\
+	\sum_{k=0}^{N-1} a^{n-k}=\sum_{k=0}^{N-1} a^{n}\left(\frac{1}{a}\right)^{k} & n>N-1
+\end{array}\right.
+$$
+
+$$
+=\left\{\begin{array}{ll}
+	0 & n<0 \\
+	a^{n} \cdot \frac{1-\left(\frac{1}{a}\right)^{n+1}}{1-\left(\frac{1}{a}\right)}=a^{n} \cdot \frac{1-a^{-(n+1)}}{1-a^{-1}} & 0 \leq n \leq N-1 \\
+	a^{n} \cdot \frac{1-\left(\frac{1}{a}\right)^{N}}{1-\left(\frac{1}{a}\right)}=a^{n} \cdot \frac{1-a^{-N}}{1-a^{-1}} & n>N-1
+\end{array}\right.
+$$
+
+$$
+y[n]=\frac{a^{n}-a^{-1}}{1-a^{-1}}(u[n]-u[n-N])+\frac{a^{n}-a^{(n-N)}}{1-a^{-1}} u[n-N]
+$$
+
+\item
+
+$$
+X(z)=\frac{1}{1-z^{-1}}-\frac{z^{-N}}{1-z^{-1}}=\frac{1-z^{-N}}{1-z^{-1}} \quad, \quad \text { ROC: }|z|>1
+$$
+
+
+$$
+h[n]=a^{n} u[n] \rightarrow
+H(z)=\frac{1}{1-a z^{-1}} \quad, \quad \text { ROC }:|z|>a
+$$
+
+
+$$Y(z) = \frac{1 - z^{-N}}{(1-z^{-1}) (1-az^{-1})} = (1 - z^{-N})(\frac{\frac{1}{1-a}}{1- z^{-1}} + \frac{\frac{1}{1 - a^{-1}}}{1 - a z^{-1}}) = (1 - z^{-N}) M(z)$$
+
+$$m[n] = \frac{1}{1-a} u[n] + \frac{1}{1-a^{-1}} a^n u[n]$$
+
+$$y[n] = m[n] - m[n-N] =(\frac{1}{1-a} u[n] + \frac{1}{1-a^{-1}} a^n u[n]) - (\frac{1}{1-a} u[n-N] + \frac{1}{1-a^{-1}} a^{n-N} u[n-N]) $$
+
+و با حالت بندی داریم:
+
+$$
+y[n]=\left\{\begin{array}{ll}
+	0 & n<0 \\
+	a^{n} \cdot \frac{1-\left(\frac{1}{a}\right)^{n+1}}{1-\left(\frac{1}{a}\right)}=a^{n} \cdot \frac{1-a^{-(n+1)}}{1-a^{-1}} & 0 \leq n \leq N-1 \\
+	a^{n} \cdot \frac{1-\left(\frac{1}{a}\right)^{N}}{1-\left(\frac{1}{a}\right)}=a^{n} \cdot \frac{1-a^{-N}}{1-a^{-1}} & n>N-1
+\end{array}\right.
+$$
+
+پس جواب هر دو حالت یکسان است.
+
+\end{enumerate}
+
+
 
 \end{document}
 
