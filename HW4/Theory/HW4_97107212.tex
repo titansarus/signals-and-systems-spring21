@@ -218,10 +218,79 @@ $$h_1[n] = \mathcal{F}^{-1}(H_1(e^{j \omega})) = (-\frac{1}{4})^n u[n] + \frac{1
 
 $$H_2(e^{j\omega}) = \frac{1}{2} \frac{1}{1+\frac{1}{4}e^{-j\omega}}+\frac{e^{-j\omega}}{1+\frac{1}{4}e^{-j\omega}}$$
 
-$$h_2[n] = \mathcal{F}^{-1}(H_2(e^{j \omega})) = (\frac{1}{2}(-\frac{1}{4})^n u[n] + (-\frac{1}{4})^{n-1}u[n-1]$$
+$$h_2[n] = \mathcal{F}^{-1}(H_2(e^{j \omega})) = \frac{1}{2}(-\frac{1}{4})^n u[n] + (-\frac{1}{4})^{n-1}u[n-1]$$
+
+
+برای پاسخ پله داریم:
+
+$$\sum_{m=-\infty}^{\infty} (-1/4)^m u[m] u[n-m] = \sum_{m=0}^{n} (-1/4)^m = \frac{4+(-\frac{1}{4})^n}{5}$$
+
+
+
+$$\sum_{m=-\infty}^{\infty} (-1/4)^{m-1} u[m-1] u[n-m] = \sum_{m=1}^{n} (-1/4)^{m-1} = \frac{4-(-\frac{1}{4})^{n}}{5}$$
+
+
+$$s_1[n] = \frac{4+(-\frac{1}{4})^n}{5} + \frac{1}{2}\times \frac{4-(-\frac{1}{4})^{n}}{5} , n\geq 0$$
+
+$$s_2[n] = \frac{1}{2} \times \frac{4+(-\frac{1}{4})^n}{5} + \frac{4-(-\frac{1}{4})^{n}}{5} , n \geq 0 $$
+
+هر دو مورد برای مقادیر کمتر از $0$ برابر $0$ هستند.
+
+شکل در صفحه بعد قرار دارد. به دلیل کوچک بودن مقادیر، طول خطوط به مقیاس نیست تا بتوان آنان را در صفحه نمایش داد. به همین دلیل هم شکل به صورت کامپیوتری رسم نشده و دستی رسم شده است.
+
+\includegraphics[width = 1.0\textwidth]{images/1.pdf}
 \end{enumerate}
 
+\newpage
 
+\section{سوال دوم}
+
+\begin{enumerate}
+	\item 
+	می‌توانیم فیلتر بالاگذر را به صورت زیر بنویسیم:
+	
+	$$H(j\omega) = 1 - H_0 (j \omega)$$
+	که
+	$H_0$
+	مربوط به فیلتر پایین گذر است. با توجه به این که طبق کتاب فرمول مربوط به فیلتر پایین گذر را می‌دانیم داریم:
+	
+	$$h[n] = \delta(t) - h_0 (t) = \delta(t) - \frac{\sin \omega_c t}{\pi t}$$
+	
+	\item
+	برای فشردگی نمودار کافیست به رفتار
+	$$ \frac{\sin \omega_c t}{\pi t}$$
+	نگاه کنیم. دو شکل زیر اولی برای $\omega_c = 4.6$ و دومی برای
+	$\omega_c = 3.41$
+	هستند. اولین نقاط برخورد نمودار با محور $t$ برابر
+	$\pm \frac{\pi}{\omega_c} $
+	هستند. با توجه به این موضوع با افزایش
+	$\omega_c$
+	متمرکزتر می‌شود.
+	
+	\includegraphics[width = 1.0\textwidth]{images/2.pdf}
+	\includegraphics[width = 1.0\textwidth]{images/3.pdf}
+	
+	\item
+	
+	$$s(t) = h(t) \star u(t) = [\delta(t) - h_0 (t)] \star u(t) = u(t) - s_0(t)$$
+	
+	که 
+	$s_0(t)$
+	به شکل کامل در شکل $6.14$ کتاب رسم شده است.
+	
+	$$s(0+) = u(0+) -s_0(0+) = 1 - 0.5 = 0.5$$
+	
+	$$s(\infty) = u(\infty) - s_0(\infty) = 1-1 =0$$
+	
+	مقدار
+	$s_0(0+),s_0(\infty)$
+	از شکل کتاب استخراج شده‌اند.
+	
+	شکل کتاب در تصویر زیر هم قرار گرفته است:
+	
+	\includegraphics[width = 1.0\textwidth]{images/4.png}
+	
+\end{enumerate}
 \end{document}
 
 
