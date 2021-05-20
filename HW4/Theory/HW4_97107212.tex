@@ -290,7 +290,86 @@ $$s_2[n] = \frac{1}{2} \times \frac{4+(-\frac{1}{4})^n}{5} + \frac{4-(-\frac{1}{
 	
 	\includegraphics[width = 1.0\textwidth]{images/4.png}
 	
+
+	
+
 \end{enumerate}
+
+\newpage
+\section{سوال سوم}
+\begin{enumerate}
+	\item 
+	به نظر می‌رسد جزئیات رسم این سوال مربوط به فصل ۱۱ باشد. به هر حال با مطالعه
+	
+	  \href{https://ocw.mit.edu/courses/mechanical-engineering/2-004-dynamics-and-control-ii-spring-2008/}{ جزوه دینامیک و کنترل 2 دانشگاه \lr{MIT}}
+	 ، به جواب زیر برای این سوال می‌رسیم:
+	$$
+	\frac{s-2}{(s+3)\left(s^{2}+2 s+17\right)}
+	$$
+	
+	$$P_1 = -3$$
+	$$P_{2,3} = -1 \pm 4 j$$
+	$$z_1 = 2$$
+	
+	مقدار مماس عمودی به صورت زیر است:
+	
+	$$\alpha = \frac{\sum Pole - \sum Zero}{Num~ Pole - Num ~Zero} = \frac{(-3 - 1 -1) - (2)}{3 -1} = -3.5$$
+	
+	زاویه مماس به صورت زیر است:
+	$$\angle \alpha = \frac{(2m+1) \pi}{Num~ Pole - Num ~ Zero}; m=0,\pm 1 , \pm 2,...$$
+	$$\angle \alpha = \frac{(2m+1) \pi}{2} = \pm \frac{\pi}{2} $$
+	
+	
+	شکل در صفحه بعد:
+	
+		\includegraphics[page = 2 , width=1.0\textwidth]{images/5.pdf}
+	
+	\item
+	
+	مخرج کسر  \lr{Closed Loop} تابع انتقال (معادله مشخصه) به صورت زیر است:
+	
+	$$1 + K H(s) = 0$$
+	$$1 + K \frac{s-2}{(s+3)\left(s^{2}+2 s+17\right)} = 0$$
+	$$(s+3)\left(s^{2}+2 s+17\right) + K(s-2) = 0$$
+	$$
+	s^{3}+5 s^{2}+(23+K) s+(51-2 K)=0
+	$$
+	
+	برای معادله
+	$$s^3 + a_2 s^2 + a_1 s + a_0 =0$$
+	
+	شرط پایداری روث-هورویتز به صورت:
+	$$a_0 , a_1 , a_2 , a_2 a_1 - a_0 > 0$$
+	است.
+	
+	$$a_0 = 51-2K > 0 \rightarrow K<25.5$$
+	$$a_1 = 23 + K > 0 \rightarrow K>-23$$
+	$$a_1 a_2 - a_0 = 7K + 64 >0 \rightarrow K>\frac{-64}{7}$$
+	از صورت سوال هم داشتیم که $K>0$ پس در کل داریم:
+	$$0<K<25.5$$ 
+	
+	
+	\item
+	$$H(s) = 
+	\frac{2}{51}\left(\frac{s}{2}-1\right)^{1}\left(\frac{s}{3}+1\right)^{-1}\left[\left(\frac{s}{\sqrt{17}}\right)^{2}+\frac{2}{17} s+1\right]^{-1}
+	$$
+	
+	$$Gain = \frac{2}{51} \approx -28 dB$$
+	
+	
+	در بازه $\omega =0$ تا $\omega = 2$ زاویه $\pi$ است و مقدار ثابت.
+	
+	برای بازه $2$ تا $3$ ریشه داریم که شیب $20dB/dec$ و زاویه $\pi/2$ دارد.
+	
+	برای بازه $3$ تا $\sqrt{17}$ قطب داریم که شیب را $20dB/dec$ پایین آورده و $0$ می کند و زاویه هم $0$ رادیان.
+	
+	برای بازه $\sqrt{17}$ تا بی نهایت، قطب Underdamp شده مختلط داریم که $40dB/dec$ شیب را پایین آورده و زاویه $-\pi$ دارد.
+	
+	شکل اغراق شده رسم شده است تا تغییرات مشخص باشد. سعی شده شکل ها طوری رسم شود که تقریبا نقطه گذار $\sqrt{2}/2$ برای اندازه و نقطه وسط برای زاویه بر اعداد ریشه‌ها و قطب ها که در بالا آورده شده است، منطبق بشود. قطعا ولی به دلیل رسم شدن با دست شکل کاملا دقیق نیست.
+	
+	\includegraphics[page = 1 , width=1.0\textwidth]{images/5.pdf}
+\end{enumerate}	
+	
 \end{document}
 
 
