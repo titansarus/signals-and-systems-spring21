@@ -284,6 +284,49 @@ $\cos(4t)+\sin(6t)$
 $$a_4 = \frac{1}{2} , a_{-4} = \frac{1}{2} , a_{6} = \frac{1}{2 j} , a_{-6} = \frac{-1}{2j}$$
 و به ازای $k\neq \pm4,\pm6$ داریم $a_k = 0$
 
+\subsubsection{بخش b}
+\begin{center}
+	\includegraphics[width = 0.5 \textwidth]{images/3.png}
+\end{center}
+
+
+$$\omega_0 = \frac{2\pi}{T}$$
+
+$$a_k = \frac{1}{T_0} \int_{-T_0/2}^{T_0/2} x(t) e^{-j k \frac{2\pi}{T_0} t} dt$$
+
+برای $k=0$ به طور جداگانه محاسبه کرده و داریم:
+
+$$\boxed{a_0 = \frac{1}{T_0} \int_{-T_0/2}^{T_0/2} x(t) dt = 0}$$
+
+برای باقی موارد داریم:
+
+$$a_k = \frac{1}{T_0} \int_{-T_0/2}^{T_0/2} x(t) e^{-j k \frac{2\pi}{T_0} t} dt = \frac{1}{T_0}(\int_{-T_0/2}^{0} (-A) e^{-j k \frac{2\pi}{T_0} t} dt + \int_{0}^{T_0/2} (A) e^{-j k \frac{2\pi}{T_0} t} dt )$$
+
+$$= \frac{1}{T_0} (\frac{A T_0 j (-1 + e^{j k \pi})}{2 k \pi} + \frac{- A  T_0 j (1 - e^{j k \pi})}{2 k \pi})$$
+
+$$\boxed{= \frac{A j e^{-j k \pi} (-1 + e^{j k \pi})^2}{2 k \pi}}$$
+
+
+\subsubsection{بخش c}
+
+دوره تناوب پایه $|\sin (x)|$ برابر $\pi$ است و عملا مانند $\sin$ مثبتی بین $0$ تا $\pi$ است که در همه تناوب‌هایش تکرار می‌شود. در نتیجه باید براساس این تناوب حل کرد.
+
+$$a_k = \frac{1}{\pi} \int_{0}^{\pi} |\sin (x)| e^{- 2 j k x} dx = \frac{1}{\pi}\int_{0}^{\pi} \sin (x) e^{- 2 j k x} dx $$
+
+برای ضریب $a_0$ داریم:
+
+$$a_0 = \frac{1}{\pi} \int_{0}^{\pi} \sin (x) dx = \frac{2}{\pi}$$
+
+
+برای سایر ضرایب داریم:
+
+$$a_k = \frac{1}{\pi}\int_{0}^{\pi} \frac{1}{2 j} (e^{i x} - e^{-ix}) e^{- 2 j k x}  dx$$
+
+$$=\frac{1}{2 \pi} \left(\frac{e^{-j (2 k-1) x}}{2 k-1}-\frac{e^{-j (2 k+1) x}}{2 k+1}\right)|_{0}^{\pi}$$
+
+$$=\frac{1}{2} \left(\frac{1}{2 k+1}-\frac{1}{2 k-1}\right)+\frac{1}{2} \left(\frac{e^{-j \pi  (2 k-1)}}{2 k-1}-\frac{e^{-j \pi  (2 k+1)}}{2 k+1}\right)$$
+
+$$=\boxed{\frac{1+e^{-2 j \pi  k}}{1-4 k^2}}$$
 \end{document}
 
 
