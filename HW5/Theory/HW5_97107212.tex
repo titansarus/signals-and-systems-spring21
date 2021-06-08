@@ -6,6 +6,7 @@
 \usepackage{hyperref}
 \usepackage{enumitem}
 \usepackage{cite}
+\usepackage{fancyvrb}
 \usepackage[many]{tcolorbox}
 \usepackage{listings }
 \usepackage[a4paper, total={6in, 8in} , bottom = 25mm , top = 25mm, headheight = 1.25cm , includehead,includefoot,heightrounded ]{geometry}
@@ -159,7 +160,72 @@
 
 \KashidaOff
 
-\section{سوال اول}
+\section{سری فوریه}
+\subsection{سوال اول}
+
+\subsubsection{بخش a}
+
+
+$$
+f(x)=\left\{\begin{array}{lr}
+	\pi-x & 0 \leq x \leq \pi \\
+	x-\pi & -\pi \leq x \leq 0
+\end{array}\right.
+$$
+
+ابتدا عامل DC را بدست می‌آوریم:
+
+$$a_0 = \frac{1}{2\pi} \int f(x) dx = \frac{1}{2\pi} \int_{-\pi}^{0} (x- \pi) dx + \int_{0}^{\pi} (\pi -x) dx$$
+$$= \frac{1}{2\pi} (\frac{-3\pi^2}{2} - \frac{\pi^2}{2}) = \boxed{- \pi} $$
+
+برای ضرایب کسینوسی داریم:
+
+$$a_n = \frac{1}{\pi} \int (f(x) \cos (nx)) dx$$
+
+$$= \frac{1}{\pi} (\int_{-\pi}^{0} (x - \pi) \cos (nx) dx + \int_{0}^{\pi} (\pi - x) \cos (nx) dx)$$
+
+ابتدا لازم است اشاره کنیم که
+$$\int x \cos (nx) = \frac{1}{n^2} \cos(nx) + \frac{1}{n} x \sin (nx)$$
+
+با توجه به این موضوع، از عبارت بالا می‌توان به راحتی انتگرال گرفت:
+
+
+$$= \frac{1}{\pi}( (\frac{\cos (n x)}{n^2}+\frac{x \sin (n x)}{n}-\frac{\pi  \sin (n x)}{n}) |_{-\pi}^{0} + (-\frac{\cos (n x)}{n^2}+\frac{\pi  \sin (n x)}{n}-\frac{x \sin (n x)}{n})|_{0}^{\infty})$$
+
+بعد از ساده سازی و محاسبات داریم:
+
+$$\boxed{a_n = -\frac{2 (\pi  n \sin (\pi  n)+\cos (\pi  n)-1)}{\pi  n^2}}$$
+
+
+برای محاسبات ضریب سینوسی داریم:
+
+$$b_n = \frac{1}{\pi} \int (f(x) sin(nx)) dx$$
+
+$$= \frac{1}{\pi} (\int_{-\pi}^{0} (x - \pi) \sin (nx) dx + \int_{0}^{\pi} (\pi - x) \sin (nx) dx)$$
+
+
+ابتدا لازم است اشاره کنیم که
+$$\int x \sin(nx) = \frac{\sin (n x)}{n^2}-\frac{x \cos (n x)}{n} $$
+
+با توجه به این موضوع، عبارت بالا مانند بخش قبل به راحتی قابل محاسبه است. جوابی که در نهایت به آن می رسیم به صورت زیر است:
+
+
+$$\boxed{b_n = \frac{2-2 \cos (\pi  n)}{n}}$$
+
+
+و جواب نهایی به صورت:
+
+$$f(x) = a_0 + \sum_{n=1}^{N} (a_n \cos (n x) + b_n \sin (n x))$$
+
+خواهد بود.
+
+کد آن در فایل 
+\lr{\Verb+P1\_Q1_a.py+}
+قرار دارد. نمودار در صفحه بعد قرار گرفته است. شکل بالایی خود تابع و شکل های بعدی به ازای $N=2,5,20,50$ هستند.
+
+\begin{center}
+	\includegraphics[width = 1.0 \textwidth]{images/1.pdf}
+\end{center}
 
 \end{document}
 
