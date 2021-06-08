@@ -220,13 +220,57 @@ $$f(x) = a_0 + \sum_{n=1}^{N} (a_n \cos (n x) + b_n \sin (n x))$$
 خواهد بود.
 
 کد آن در فایل 
-\lr{\Verb+P1\_Q1_a.py+}
+\lr{\Verb+P1\_Q1\_a.py+}
 قرار دارد. نمودار در صفحه بعد قرار گرفته است. شکل بالایی خود تابع و شکل های بعدی به ازای $N=2,5,20,50$ هستند.
 
 \begin{center}
 	\includegraphics[width = 1.0 \textwidth]{images/1.pdf}
 \end{center}
 
+
+\newpage
+
+\subsubsection{بخش b}
+
+$$
+f(x)=\left\{\begin{array}{lr}
+	1 & 0 \leq x<\frac{\pi}{2} \\
+	0 & \frac{\pi}{2} \leq x<\pi \\
+	0 & -\pi \leq x<0
+\end{array}\right.
+$$
+
+$$a_0 = \frac{1}{2\pi} \int f(x) dx = \frac{1}{2\pi} \int_{0}^{\pi/2} 1 dx = \boxed{ \frac{1}{4}}$$
+
+
+$$a_n = \frac{1}{\pi} \int (f(x) \cos (nx)) dx$$
+
+$$=\frac{1}{\pi}\int_{0}^{\pi/2} \cos (nx) dx = \frac{1}{\pi }\frac{\sin(nx)}{n}|_{0}^{\pi/2}  = \boxed{\frac{\sin \left(\frac{\pi  n}{2}\right)}{\pi  n}}$$
+
+$$b_n = \frac{1}{\pi} \int (f(x) \sin (nx)) dx$$
+$$= \frac{1}{\pi} \int_{0}^{\pi/2} \sin (nx) dx = - \frac{1}{\pi} \frac{\cos (n x)}{n} |_{0}^{\pi/2}  = \boxed{\frac{2 \sin ^2\left(\frac{\pi  n}{4}\right)}{\pi  n}}$$
+
+که در بالا از اتحاد
+$\cos(2 \theta) = 1 - 2\sin^2 (\theta)$
+استفاده شده است.
+
+
+و جواب نهایی به صورت:
+
+$$f(x) = a_0 + \sum_{n=1}^{N} (a_n \cos (n x) + b_n \sin (n x))$$
+
+
+
+کد آن در فایل 
+\lr{\Verb+P1\_Q1\_b.py+}
+قرار دارد. نمودار در صفحه بعد قرار گرفته است. شکل بالایی خود تابع و شکل های بعدی به ازای $N=2,5,20,50$ هستند.
+
+\begin{center}
+	\includegraphics[width = 1.0 \textwidth]{images/2.pdf}
+\end{center}
+
+\newpage
+\subsection{سوال دوم}
 \end{document}
 
 
