@@ -34,9 +34,6 @@ f20 = make_trig_sum(an , bn , a0 , 20)
 f50 = make_trig_sum(an , bn , a0 , 50)
 
 
-
-plt.plot(x,np.array(list(map(f, x))))
-
 fig, axs = plt.subplots(5 , figsize=(7,7))
 fig.suptitle('Amirmahdi Namjoo')
 axs[0].set_title("f(x)")
