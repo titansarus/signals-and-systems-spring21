@@ -327,6 +327,60 @@ $$=\frac{1}{2 \pi} \left(\frac{e^{-j (2 k-1) x}}{2 k-1}-\frac{e^{-j (2 k+1) x}}{
 $$=\frac{1}{2} \left(\frac{1}{2 k+1}-\frac{1}{2 k-1}\right)+\frac{1}{2} \left(\frac{e^{-j \pi  (2 k-1)}}{2 k-1}-\frac{e^{-j \pi  (2 k+1)}}{2 k+1}\right)$$
 
 $$=\boxed{\frac{1+e^{-2 j \pi  k}}{1-4 k^2}}$$
+
+\subsection{سوال سوم}
+
+\subsubsection{بخش a}
+
+
+
+$$x(t) = 
++-2j e^{-2j \omega_0 t}
++-1j e^{-1j \omega_0 t}
++1j e^{1j \omega_0 t}
++2j e^{2j \omega_0 t}
+$$
+
+$$=
+-\frac{4}{2j}(e^{2j \omega_0 t} - e^{-2j \omega_0 t})
+-\frac{2}{2j}(e^{j \omega_0 t} - e^{-j \omega_0 t})$$
+
+$$\boxed{= -4 \sin(2 \omega_0 t) -2 \sin( \omega_0 t)}$$
+
+
+\subsubsection{بخش b}
+
+عبارت مورد نظر باید ما را به یاد سری فوریه قطار ضربه بیندازد.
+
+$$\delta_{T_0} (t) = \sum_{k=-\infty}^{\infty} c_k e^{jk\omega_0 t}$$
+
+برای ضرایب فوریه چنین چیزی داریم:
+$$
+c_{k}=\frac{1}{T_{0}} \int_{-T_{0} / 2}^{T_{0} / 2} \delta(t) e^{-j k \omega_{0} t} d t=\frac{1}{T_{0}}
+$$
+
+$$
+\delta_{T_{0}}(t)=\sum_{k=-\infty}^{\infty} \delta\left(t-k T_{0}\right)=\frac{1}{T_{0}} \sum_{k=-\infty}^{\infty} e^{j k \omega_{0} t} \quad \omega_{0}=\frac{2 \pi}{T_{0}}
+$$
+
+
+با توجه به این موضوع برای چیزی که در صورت سوال داده شده، می‌توانیم آن را معادل با 
+
+$$
+z(t)=\sum_{k=-\infty}^{\infty} e^{j k \omega_{0} t} \delta(t-T_0 k+2 k)
+$$
+
+بدانیم.
+
+در عبارت بالا $2k$ برای زوج سازی و سپس $e$ برای شیفت فرکانسی اضافه شده است که باعث بشود که تنها عبارت‌های فرد $1$ بمانند و عبارت‌های زوج $0$ شوند.
+
+
+\subsection{سوال چهارم}
+
+
+
+
+
 \end{document}
 
 
