@@ -679,6 +679,85 @@ $$
 
 $$\boxed{X(j\omega) = \frac{2 \sin \omega}{\omega}+\frac{\sin (\pi-\omega)}{\pi-\omega}+\frac{\sin (\pi+\omega)}{\pi+\omega}}$$
 
+\subsubsection{بخش c}
+
+
+می‌دانیم تبدیل فوریه $e^{a|t|}$ به صورت
+$\frac{2a}{a^2 + \omega^2}$
+است.
+اثبات:
+
+$$
+\begin{gathered}
+	x(t)=e^{-d t \mid}=\left\{\begin{array}{ll}
+		e^{-a t} & t>0 \\
+		e^{a t} & t<0
+	\end{array}\right. \\
+	X(\omega)=\int_{-\infty}^{0} e^{a t} e^{-j \omega t} d t+\int_{0}^{\infty} e^{-a t} e^{-j \omega t} d t \\
+	=\int_{-\infty}^{0} e^{(a-j \omega) t} d t+\int_{0}^{\infty} e^{-(a+j \omega) t} d t \\
+	=\frac{1}{a-j \omega}+\frac{1}{a+j \omega}=\frac{2 a}{a^{2}+\omega^{2}}
+\end{gathered}
+$$
+
+همچنین می دانیم که تبدیل فوریه
+$t f(t)$
+تبدیل فوریه برابر است با:
+$j \frac{d}{d\omega} F(\omega)$
+
+پس در این جا هم جواب
+
+$$j \frac{d}{d \omega } \frac{2a}{a^2 + \omega^2} = -\frac{4 a  j \omega}{\left(a^2+\omega^2\right)^2}$$
+
+
+\subsubsection{بخش d}
+
+$$X(jw) = \int_{-\infty}^{\infty} \cos (\omega_0 t) u(t) e^{-j \omega t} dt$$
+
+$$X(jw) = \int_{0}^{\infty} \cos (\omega_0 t) e^{-j \omega t} dt$$
+
+$$X(jw) = \frac{1}{2} \int_{0}^{\infty} (e^{j \omega_0 t} + e^{-j \omega_0 t}) e^{-j \omega t} dt$$
+$$= -\frac{j \omega}{\omega^2-{\omega_0}^2}$$
+
+
+\subsubsection{بخش e}
+
+$$
+\Delta(t)=\left\{\begin{array}{lr}
+	1-2|t| & 0 \leq t \leq 1 / 2 \\
+	0 & \text { otherwise }
+\end{array}\right. = 
+\left\{\begin{array}{lr}
+	1-2t & 0 \leq t \leq 1 / 2 \\
+	0 & \text { otherwise }
+\end{array}\right.
+$$
+
+
+$$
+\begin{aligned}
+	F(\omega) &=\int_{-\infty}^{\infty} \Delta(t) e^{-j \omega t} d t \\
+	&=\int_{0}^{1 / 2}(1-2 t) e^{-j \omega t} d t \\
+	&=\left.\frac{j \omega(2 t-1)+2}{(j \omega)^{2}} e^{-j \omega t}\right|_{t=0} ^{1 / 2} \\
+	&=\frac{2-j \omega-2 e^{-j \omega / 2}}{\omega^{2}}
+\end{aligned}
+$$
+
+\subsubsection{بخش f}
+
+$$
+x(t)=\left\{\begin{aligned}
+	1 & \text { if } 1 \leq|t| \leq 3 \\
+	-1 & \text { if }|t|<1 \\
+	0 & \text { otherwise }
+\end{aligned}\right.
+$$
+
+می‌دانیم که تبدیل فوریه سیگنال مستطیلی بین $-1/2$ تا $1/2$ به صورت:
+$\frac{\sin \frac{\omega }{2}}{\frac{\omega}{2}} = sinc (\omega/2)$
+است. اگر سیگنال مستطیلی ذکر شده را با نماد $\Pi(t)$ نمایش بدهیم، عبارت بالا
+$\Pi(t/6) - 2\Pi (t/2)$
+است. در نتیجه
+$$F(\omega) = 6sinc(6 \omega/2) - 4 sinc(2 \omega /2) = 6sinc(3\omega) - 4 sinc(\omega)$$
 \end{document}
 
 
