@@ -636,7 +636,48 @@ $$a_{ 50 } = 1.5195743635847159e-33 , b_{ 50 } = 0.006366197723675813$$
 
 \subsection{سوال اول}
 
+$$X(jw) = \int_{-\infty}^{\infty} x(t) e^{-j \omega t} dt$$
 
+\subsubsection{بخش a}
+
+$$e^{- a |t|} \sin \omega_0 t$$
+
+$$X(jw) = \int_{-\infty}^{\infty} e^{- a |t|} \sin (\omega_0 t) e^{-j \omega t}  dt$$
+$$\int_0^{\infty}  \sin (\omega_0 t) e^{(-jw -a) t} + \int_{-\infty}^{0}  \sin (\omega_0 t) e^{(-jw + a)t}$$
+
+$$= \int_{0}^{\infty} e^{-at} \sin(\omega_0 t) (e^{-jwt} - e^{jwt})$$
+
+$$= -2j \int_{0}^{\infty} e^{at} \sin(\omega_0 t) \sin(\omega t)$$
+
+
+$$= j \int_{0}^{\infty} e^{at} (\cos ((\omega_0 + \omega) t) - \cos((\omega_0 - \omega )t))$$
+
+$$= j(e^{a t} \left(\frac{a \cos (t (\omega_0-\omega))+(\omega_0-\omega) \sin (t (\omega_0-\omega))}{a^2+(\omega_0-\omega)^2}-\frac{a \cos (t (\omega_0+\omega))+(\omega_0+\omega) \sin (t (\omega_0+\omega))}{a^2+(\omega_0+\omega)^2}\right))|_{0}^{\infty}$$
+
+با شرط $a<0$ داریم:
+
+$$= \frac{4 a \omega_0 \omega j}{\left(a^2+\omega_0^2\right)^2+2 \omega^2 (a-\omega_0) (a+\omega_0)+\omega^4}$$
+
+\newpage
+
+
+\subsubsection{بخش b}
+
+$$
+X(j \omega)=\int_{-1}^{1}(1+\cos (\pi t)) e^{-j \omega t} d t
+$$
+
+$$
+\begin{gathered}
+	X(j \omega)=\int_{-1}^{1} e^{-j \omega t} d t+\int_{-1}^{1} \frac{e^{j \pi t}+e^{-j \pi t}}{2} e^{-j \omega t} d t \\
+	X(j \omega)=\left.\frac{e^{-j \omega t}}{-j \omega}\right|_{-1} ^{1}+\left.\frac{1}{2}\left(\frac{e^{j(\pi-\omega)}}{j(\pi-\omega)}+\frac{e^{-j(\pi+\omega) t}}{-j(\pi+\omega)}\right)\right|_{-1} ^{1} \\
+	X(j \omega)=\frac{e^{-j \omega}-e^{j \omega}}{-j \omega}+\frac{1}{2}\left(\frac{e^{j(\pi-\omega)}-e^{j(\pi-\omega)}}{j(\pi-\omega)}+\frac{e^{-j(\pi+\omega)}-e^{j(\pi+\omega)}}{-j(\pi+\omega)}\right) \\
+	X(j \omega)=\frac{2}{\omega} \cdot \frac{e^{j \omega}-e^{-j \omega}}{2 j}+\frac{1}{\pi-\omega} \cdot \frac{e^{j(\pi-\omega)}-e^{j(\pi-\omega)}}{2 j}+\frac{1}{\pi+\omega} \cdot \frac{e^{j(\pi+\omega)}-e^{-j(\pi+\omega)}}{2 j} \\
+	X(j \omega)=\frac{2 \sin \omega}{\omega}+\frac{\sin (\pi-\omega)}{\pi-\omega}+\frac{\sin (\pi+\omega)}{\pi+\omega}
+\end{gathered}
+$$
+
+$$\boxed{X(j\omega) = \frac{2 \sin \omega}{\omega}+\frac{\sin (\pi-\omega)}{\pi-\omega}+\frac{\sin (\pi+\omega)}{\pi+\omega}}$$
 
 \end{document}
 
