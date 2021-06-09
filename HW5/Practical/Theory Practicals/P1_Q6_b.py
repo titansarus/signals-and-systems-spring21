@@ -9,9 +9,9 @@ def f(x):
         return -x + 5.0/3
     elif 2<= x < 4:
         return 0
-    elif x>4:
+    elif x>=4:
         return f(x-5)
-    elif x<-1:
+    elif x<=-1:
         return f(x+5)
 
 
@@ -45,25 +45,25 @@ f47 = make_trig_sum(an , bn , a0 , 47)
 
 
 
-#
-# fig, axs = plt.subplots(6 , figsize=(7,7))
-# fig.suptitle('Amirmahdi Namjoo')
-# axs[0].set_title("f(x)")
-# axs[1].set_title("N=1")
-# axs[2].set_title("N=4")
-# axs[3].set_title("N=9")
-# axs[4].set_title("N=23")
-# axs[5].set_title("N=47")
-# axs[0].plot(x, np.array(list(map(f, x))))
-# axs[1].plot(x, np.array(list(map(f1, x))))
-# axs[2].plot(x, np.array(list(map(f4, x))))
-# axs[3].plot(x, np.array(list(map(f9, x))))
-# axs[4].plot(x, np.array(list(map(f23, x))))
-# axs[5].plot(x, np.array(list(map(f47, x))))
-#
-# fig.tight_layout()
-#
-# plt.show()
+
+fig, axs = plt.subplots(6 , figsize=(7,7))
+fig.suptitle('Amirmahdi Namjoo')
+axs[0].set_title("f(x)")
+axs[1].set_title("N=1")
+axs[2].set_title("N=4")
+axs[3].set_title("N=9")
+axs[4].set_title("N=23")
+axs[5].set_title("N=47")
+axs[0].plot(x, np.array(list(map(f, x))))
+axs[1].plot(x, np.array(list(map(f1, x))))
+axs[2].plot(x, np.array(list(map(f4, x))))
+axs[3].plot(x, np.array(list(map(f9, x))))
+axs[4].plot(x, np.array(list(map(f23, x))))
+axs[5].plot(x, np.array(list(map(f47, x))))
+
+fig.tight_layout()
+
+plt.show()
 
 fig , axs= plt.subplots(5 , figsize = (7,7))
 axs[0].set_title("N=1")
