@@ -481,12 +481,12 @@ $$\frac{1}{5} (\frac{50 i \pi  k+e^{\frac{2 i \pi  k}{5}} (-75-20 i \pi  k)+75}{
 
 
 $$a_n = \frac{2}{5} \int (f(t) \cos (\frac{2\pi}{5} n t)) dt$$
-$$ =\frac{2}{5} \int_{-1}^{0} (t+5/3) \cos(\frac{2 \pi}{5} n t) dt + \int_{0}^{2} (-t + 5/3) \cos (\frac{2 \pi}{5} n t) dt$$
+$$ =\frac{2}{5} (\int_{-1}^{0} (t+5/3) \cos(\frac{2 \pi}{5} n t) dt + \int_{0}^{2} (-t + 5/3) \cos (\frac{2 \pi}{5} n t) dt)$$
 $$= \frac{\sin ^2\left(\frac{\pi  n}{5}\right) \left(4 \pi  n \sin \left(\frac{2 \pi  n}{5}\right)+30 \cos \left(\frac{2 \pi  n}{5}\right)+45\right)}{3 \pi ^2 n^2}$$
 
 
-$$b_n = \frac{2}{5} \int (f(t) \sin (\frac{2\pi}{5} n t)) dt$$
-$$ =\frac{2}{5} \int_{-1}^{0} (t+5/3) \sin(\frac{2 \pi}{5} n t) dt + \int_{0}^{2} (-t + 5/3) \sin (\frac{2 \pi}{5} n t) dt$$
+$$b_n = \frac{2}{5} (\int (f(t) \sin (\frac{2\pi}{5} n t)) dt$$
+$$ =\frac{2}{5}( \int_{-1}^{0} (t+5/3) \sin(\frac{2 \pi}{5} n t) dt + \int_{0}^{2} (-t + 5/3) \sin (\frac{2 \pi}{5} n t) dt)$$
 $$= \frac{15 \left(\sin \left(\frac{2 \pi  n}{5}\right)-\sin \left(\frac{4 \pi  n}{5}\right)\right)+4 \pi  n \cos \left(\frac{2 \pi  n}{5}\right)+2 \pi  n \cos \left(\frac{4 \pi  n}{5}\right)}{6 \pi ^2 n^2}$$
 
 
@@ -821,6 +821,67 @@ $$H(j\omega) =
  پس
  
  $$y(t) = \frac{1}{4} \cos (9 \pi t)$$
+ 
+ 
+\subsection{سوال پنجم}
+
+$$
+2 \frac{d^{2} y(t)}{d t^{2}}+3 \frac{d y(t)}{d t}-2 y(t)=x(t-1)
+$$
+
+با فرض شرایط اولیه صفر:
+
+$$2 (j\omega)^2 Y(j\omega) + 3 (j\omega) Y(j\omega) - 2 Y(j\omega) = e^{-j\omega} X(j \omega)$$
+
+$$X(j \omega) = \frac{1}{5 + j\omega} - \frac{1}{1 +j \omega}$$
+
+
+$$Y(j \omega) = e^{- j \omega} \times \frac{\frac{1}{j\omega+5}-\frac{1}{j\omega+1}}{2 j\omega^2+3 j\omega-2}$$
+
+$$= e^{-j \omega}\times( -\frac{4}{(j\omega+1) (j\omega+5) \left(2 j\omega^2+3 j\omega-2\right)})$$
+$$= e^{-j \omega} \times( -\frac{4}{15 (j\omega+2)}+\frac{1}{33 (j\omega+5)}-\frac{32}{165 (2 j\omega-1)}+\frac{1}{3 (j\omega+1)})$$
+
+ابتدا قسمت درون پرانتز را تبدیل فوریه معکوس می گیریم:
+
+$$\rightarrow \frac{-4}{15} e^{-2t}u(t) + \frac{1}{33} e^{-5t}u(t) + \frac{16}{65} e^{\frac{1}{2} t} u(-t) + \frac{1}{3} e^{-t}u(t) $$
+
+حال اثر $e^{-j \omega}$ را که شییفت به راست می دهد را اعمال می‌کنیم:
+
+
+$$y(t) = \frac{-4}{15} e^{-2(t-1)}u(t-1) + \frac{1}{33} e^{-5(t-1)}u(t-1) + \frac{16}{65} e^{\frac{1}{2} (t-1)} u(-(t-1)) + \frac{1}{3} e^{-(t-1)}u(t-1) $$
+$$=\frac{-4}{15} e^{-2t+2)}u(t-1) + \frac{1}{33} e^{-5t+5)}u(t-1) + \frac{16}{65} e^{\frac{1}{2} t-\frac{1}{2}} u(-t+1) + \frac{1}{3} e^{-t+1}u(t-1)$$
+
+\newpage
+\subsection{سوال ششم}
+
+$$
+\sum_{k=-\infty}^{+\infty} \delta\left(\omega-k \omega_{0}\right)=\frac{1}{\omega_{0}} \sum_{n=-\infty}^{+\infty} e^{\frac{2 \pi n j \omega}{\omega_{0}}}
+$$
+
+اگر توجه کنیم عبارت صورت سوال به شدت شبیه سری فوریه است. در اصل عبارت
+$\sum_{k=-\infty}^{+\infty} \delta\left(\omega-k \omega_{0}\right)$
+یک عبارت متناوب با دوره تناوب $\omega_0$ است که در هر $\omega_0$ یک تابع ضربه ایجاد کرده است. در نتیجه ضرایب فوریه آن را در یک دوره تناوب بدست می‌آوریم. البته بهتر بود به جای نماد $\omega_0$ از نماد $T_0$ استفاده می‌شد چون عملا این جا $\omega_0$ فرکانس نیست و خود دوره تناوب است ولی به هر حال با همین نماد جلو می‌رویم. عملا بهتر بود برای رعایت نمادگذاری به جای $\omega$ هم $t$ گذاشته می‌شد ولی در صورت سوال نمادگذاری متفاوتی استفاده شده است و از آن جایی که عملا تبدیل خاصی هم خواسته نشده است، می‌توانیم به صورت سوال به چشم یک تابع معمولی نگاه کنیم که به جای نماد $t$ نماد $\omega$ در آن گذاشته شده است.
+
+$$a_k = \frac{1}{\omega_0} \int_{-\omega_0/2}^{\omega_0/2} \sum_{n=-\infty}^{\infty} \delta (\omega - n \omega_{0} ) e^{-jk\frac{\omega_0}{2 \pi} \omega} d\omega$$
+
+عبارت بالا فقط به ازای $n=0$ مقدار غیر صفر دارد (در بازه انتگرال نوشته شده):
+
+$$a_k = \frac{1}{\omega_0} \int_{-\omega_0/2}^{\omega_0 /2} \delta(\omega) e^{-j k \frac{\omega_0}{2\pi}\omega}  d\omega$$
+
+عبارت بالا تنها در $\omega=0$ ناصفر است پس:
+
+$$a_k = \frac{1}{\omega_0} \int_{-\omega_{0}/2}^{\omega_0/2} \delta(\omega) d\omega = \frac{1}{\omega_0}$$
+
+در نتیجه با توجه به رابطه سری فوریه به عبارت زیر می رسیم. توجه کنید که در این جا عملا
+ $\omega_0$
+  رابطه فوریه به صورت 
+   $\frac{\omega_0}{2\pi}$
+   و $t$ آن رابطه به صورت $\omega$ است.
+   
+
+$$\sum_{k=-\infty}^{+\infty} \delta\left(\omega-k \omega_{0}\right)= \sum_{n=-\infty}^{+\infty} a_n e^{\frac{2 \pi n j \omega}{\omega_{0}}}$$
+
+$$\sum_{k=-\infty}^{+\infty} \delta\left(\omega-k \omega_{0}\right)=\frac{1}{\omega_{0}} \sum_{n=-\infty}^{+\infty} e^{\frac{2 \pi n j \omega}{\omega_{0}}}$$
 \end{document}
 
 
