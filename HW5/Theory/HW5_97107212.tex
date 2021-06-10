@@ -883,6 +883,7 @@ $$\sum_{k=-\infty}^{+\infty} \delta\left(\omega-k \omega_{0}\right)= \sum_{n=-\i
 
 $$\sum_{k=-\infty}^{+\infty} \delta\left(\omega-k \omega_{0}\right)=\frac{1}{\omega_{0}} \sum_{n=-\infty}^{+\infty} e^{\frac{2 \pi n j \omega}{\omega_{0}}}$$
 
+\newpage
 \subsection{سوال هفتم}
 
 قضیه را به شکل کلی اثبات می‌کنیم.
@@ -949,7 +950,23 @@ $$=u(x) + i v(x)$$
  
  توجه کنید که در صورت سوال \lr{finite} بودن صحبت شده که می توان آن را مشابه \lr{compact} بودن در نظر گرفت ولی با بازه گسترده تر. چون \lr{compact} بودن و \lr{support} هم بر این اساس است که از یک بازه ای به بعد، همه مقادیر صفر بشوند و قبل از لزوما صفر نباشند. در حالت \lr{compact} می‌تواند تعداد این مقادیر بیشمار هم باشد و مثلا یک بازه پیوسته باشد ولی می‌تواند محدود هم باشد و مشکل خاصی از این بابت نیست.
  
- 
+ \newpage
+\section{سوال عملی}
+
+\subsection{بخش ۱}
+
+نشان می‌دهیم که تبدیل معکوس فوریه گسسته به صورت زیر است:
+
+$$x[n] = \frac{1}{n} \sum_{k=0}^{N-1} X_k e^{2\pi j k n / N}$$
+
+که در آن $X_k$ خود تبدیل فوریه گسسته است.
+
+برای اثبات داریم:
+
+$$\frac{1}{N} \sum_{k=0}^{N-1} X_k e^{2\pi j k n /N} = \frac{1}{N} \sum_{k=0}^{N-1}(\sum_{m=0}^{N-1} x_m e^{- 2\pi j k m/N})e^{2 \pi j k n /N}$$
+
+$$= \frac{1}{N}\sum_{m=0}^{N-1}\sum_{k=0}^{N-1} x_m e^{2\pi j k(n-m)/N} = \sum_{m=0}^{N-1} x_m (\frac{1}{N} \sum_{k=0}^{N-1} e^{2 \pi j (n-m)/N})$$
+$$=\sum_{m=0}^{N-1} x_m \delta[n-m] = x_n$$
 
  
 \end{document}
