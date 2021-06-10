@@ -787,6 +787,40 @@ $$ \int_{-\infty}^{0} j\omega e^{\omega} e^{j \omega t} d\omega + \int_{0}^{\inf
 $$=\frac{i}{(t-i)^2} +(-\frac{i}{(t+i)^2}) $$
 
 $$=-\frac{4 t}{\left(t^2+1\right)^2}$$
+
+\newpage
+\subsection{سوال سوم}
+\newpage
+
+\subsection{سوال چهارم}
+
+$$h(t)=\frac{\sin (10 \pi  t)-\sin (6 \pi  t)}{2 \pi  t}$$
+
+$$H(j\omega) = 
+\left\{\begin{array}{ll}
+	\frac{1}{2}, & |\omega|<10\pi \\
+	0, & |\omega|>10\pi
+\end{array}\right.
+ -
+ \left\{\begin{array}{ll}
+ 	\frac{1}{2}, & |\omega|<6\pi \\
+ 	0, & |\omega|>6\pi
+ \end{array}\right.
+ $$
+ 
+ 
+ $$x(t) = \frac{1}{2} (\cos (5 \pi  t)+\cos (9 \pi  t))$$
+ 
+ 
+ $$X(j\omega) = \frac{\pi}{2} (\delta(\omega-5\pi) + \delta(\omega + 5\pi)) + \frac{\pi}{2} (\delta(\omega-9\pi) + \delta(\omega + 9\pi))$$
+ 
+ با ضرب $H$ در $X$ ، عبارت داری $5\pi$ که فقط در $5\pi$ مقدار دارد، در هر دو حالت $H$ شامل حالت $\frac{1}{2}$ شده و صفر می‌شود. ولی عبارت دومی فقط در حالت $|w|<10\pi$ صدق می‌کند و نصف می‌شود. در نتیجه:
+ 
+ $$Y(j\omega) =\frac{\pi}{4} (\delta(\omega-9\pi) + \delta(\omega + 9\pi))$$
+ 
+ پس
+ 
+ $$y(t) = \frac{1}{4} \cos (9 \pi t)$$
 \end{document}
 
 
