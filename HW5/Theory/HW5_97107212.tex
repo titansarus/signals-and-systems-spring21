@@ -790,6 +790,76 @@ $$=-\frac{4 t}{\left(t^2+1\right)^2}$$
 
 \newpage
 \subsection{سوال سوم}
+
+برای این سوال ابتدا تبدیل فوریه سه سیگنال داده شده را بدست می آوریم.
+
+برای $sinc(t)$ می دانیم که تبدیل فوریه آن
+$
+X_2(j\omega)= \operatorname{rect}(\frac{\omega}{2\pi})
+$
+است و تابع $rect$ به صورت زیر تعریف می شود:
+
+$$ 
+\operatorname{rect}(t)=\Pi(t)=\left\{\begin{array}{ll}
+	0, & |t|>\frac{1}{2} \\
+	\frac{1}{2}, & |t|=\frac{1}{2} \\
+	1, & |t|<\frac{1}{2}
+\end{array}\right.
+$$
+
+یعنی
+
+$$X_2 (j\omega) = \left\{\begin{array}{ll}
+	0, & |\omega|>\pi \\
+	\frac{1}{2}, & |\omega|=\pi \\
+	1, & |\omega|<\pi
+\end{array}\right.$$
+
+همچنین برای 
+$sinc^2(t)$
+می دانیم که تبدیل فوریه آن به نوعی کانلوشون دو سیگنال مربعی است. در نتیجه تبدیل فوریه آن به صورت مثلثی 
+$X_1 (j\omega) = X_3(j\omega) =\operatorname{tri}(\frac{\omega}{2\pi})$
+است و سیگنال مثلثی به صورت زیر تعریف می‌شود:
+
+$$\operatorname{tri}(x) = \Lambda(x)=
+=\left\{\begin{array}{ll}
+	1-|x|, & |x|<1 \\
+	0 & \text { otherwise }
+\end{array}\right.
+$$
+
+
+$$X_1 (j\omega) = X_3(j\omega) ==\left\{\begin{array}{ll}
+	1-|\frac{\omega}{2\pi}|, & |\omega|<2\pi \\
+	0 & \text { otherwise }
+\end{array}\right. $$
+
+اگر سیستم $LTI$ باشد، عملا باید
+$\operatorname{tri}(\frac{\omega}{2\pi}) \times H_a(j\omega) =
+\operatorname{rect}(\frac{\omega}{2\pi})$
+باشد. در نتیجه باید فرض کنیم که $A$ عملا به این صورت تعریف بشود:
+
+$$H_a(j\omega)=\left\{\begin{array}{ll}
+ \frac{1}{X_1 (\omega)}, & |\omega|<\pi \\
+	0 & \text { otherwise }
+\end{array}\right. = \left\{\begin{array}{ll}
+1-|\frac{\omega}{2\pi}|, & |\omega|<\pi \\
+0 & \text { otherwise }
+\end{array}\right. 
+$$
+
+چنین تابعی تابع معتبری است. اعدادی بین $-\pi$ تا $\pi$ را به عددی غیر صفر نظیر می‌کند و بقیه را هم به صفر نظیر می‌کند. تابع دیگری که در آن ضرب شده هم در بین $-2\pi$ تا $\pi$ مقادیر غیر صفر دارد. پس نتایج ما منطقی است و سیستم $a$ \textbf{می‌تواند} LTI باشد.
+
+اما برای حالت دوم و سیستم $b$، باید توجه کرد که این سیستم باید به این صورت باشد که
+$$X_2(j\omega )\times H_b(j\omega) = X_3(j\omega)$$ 
+بشود. نکته‌ای که وجود دارد این است که $X_2(j\omega)$ در بازه‌های 
+$|x-2\pi|<\pi$
+یعنی
+$x\in (-2\pi , -\pi) \cup (-\pi , 2\pi)$
+برابر صفر است. این عبارت در $H_b(j\omega)$ ضرب شده است و در همین بازه خروجی ناصفر تولید کرده‌است. در نتیجه $H_b(j\omega)$ نمی‌تواند تابع باشد و رابطه متعارفی نیست. در نتیجه سیستم $b$ \textbf{نمی‌تواند} \lr{LTI} باشد.
+
+
+
 \newpage
 
 \subsection{سوال چهارم}
@@ -950,6 +1020,76 @@ $$=u(x) + i v(x)$$
  
  توجه کنید که در صورت سوال \lr{finite} بودن صحبت شده که می توان آن را مشابه \lr{compact} بودن در نظر گرفت ولی با بازه گسترده تر. چون \lr{compact} بودن و \lr{support} هم بر این اساس است که از یک بازه ای به بعد، همه مقادیر صفر بشوند و قبل از لزوما صفر نباشند. در حالت \lr{compact} می‌تواند تعداد این مقادیر بیشمار هم باشد و مثلا یک بازه پیوسته باشد ولی می‌تواند محدود هم باشد و مشکل خاصی از این بابت نیست.
  
+ \newpage
+ 
+ \subsection{سوال هشتم}
+ $$
+ \begin{aligned}
+ 	&x_{1}(t)=\left\{\begin{array}{ll}
+ 		0 & t<0 \\
+ 		1 & t \geq 0
+ 	\end{array}\right. \\
+ 	&x_{2}(t)=\left\{\begin{array}{ll}
+ 		0 & t \leq 0 \\
+ 		1 & t>0
+ 	\end{array}\right.
+ \end{aligned}
+ $$
+ 
+ 
+ \subsubsection{بخش a}
+ 
+ برای تبدیل فوریه
+ $$
+ 	x_{1}(t)=\left\{\begin{array}{ll}
+ 		0 & t<0 \\
+ 		1 & t \geq 0
+ 	\end{array}\right.
+ $$
+ از تبدیل فوریه 
+ $$
+ g_{\alpha}(t)=\left\{\begin{array}{ll}
+ 	e^{-a t} & t \geq 0 \\
+ 	0 & t<0
+ \end{array}\right.
+ $$
+استفاده می‌کنیم.
+برای این عبارت به ازای $a>0$ داریم:
+
+$$H_{\alpha}(j\omega) =
+\frac{1}{a+j \omega}=\frac{a-j \omega}{a^{2}+\omega^{2}}=\frac{a}{a^{2}+\omega^{2}}-\frac{j \omega}{a^{2}+\omega^{2}}
+$$
+
+در حد $a \to 0$ داریم:
+
+$$\frac{a}{a^2 + \omega^2} \to \pi \delta(\omega)$$
+و
+$$-\frac{j \omega}{a^2 +\omega^2} \to \frac{1}{j\omega}$$
+
+در نتیجه
+
+$$\mathbb{F}(x_1(t)) = \pi \delta(\omega) + \frac{1}{j\omega}$$
+
+برای تابع دوم هم عملا به همین شکل می‌شود. چون اساسا تبدیل فوریه تابع نمایی داده شده تغییر خاصی نمی‌کند و در نتیجه حد‌های آن هم به همین شکل خواهند ماند.
+
+
+\subsubsection{بخش b}
+
+نکته اساسی که در مورد این دو سیگنال وجود دارد این است که به هر حال در هر دو، در حوالی $t=0$ شاهد یک جهش ناگهانی در مقدار سیگنال هستیم. در یکی از مقدار صفر در $0^{-}$ به $1$ در خود $0$ جهش می‌کند و در دیگری از مقدار صفر در خود صفر به مقدار $1$ در $0^+$ جهش صورت می‌گیرد.
+
+در اصل اگر بخواهیم خیلی ساده‌انگارانه بخواهیم با سوال رفتار کنیم، جواب قسمت قبل را به شکل ساده ای
+$\frac{1}{j\omega}$
+بدست می‌آوردیم. حالا اگر می‌خواستیم تبدیل معکوس آن را حساب کنیم داشتیم:
+
+
+$$x(t) = \frac{1}{2\pi} \int_{-\infty}^{\infty} \frac{e^{j\omega t}}{j\omega} d\omega = \frac{1}{2 \pi j} (\int_{-\infty}^{0} ... + \int_{0}^{\infty} ...)$$
+$$
+=\frac{1}{2 \pi } \int_{0}^{\infty} \frac{e^{i \omega t}-e^{-i \omega t}}{\omega} d \omega=\frac{1}{\pi} \int_{0}^{\infty} \frac{\sin \omega t}{\omega} d \omega=\frac{1}{2}
+$$
+
+نکاتی در مورد این انتگرال وجود دارد. اول این که تقسیم آن به دو انتگرال نکته جالبی را اشکار می‌کند. این دو انتگرال جداگانه، دو قسمت حقیقی را تولید می‌کنند ولی با 
+
+
  \newpage
 \section{سوال عملی}
 
