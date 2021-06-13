@@ -8,6 +8,7 @@
 \usepackage{cite}
 \usepackage{fancyvrb}
 \usepackage[many]{tcolorbox}
+\usepackage{mathtools}
 \usepackage{listings }
 \usepackage[a4paper, total={6in, 8in} , bottom = 25mm , top = 25mm, headheight = 1.25cm , includehead,includefoot,heightrounded ]{geometry}
 \usepackage{afterpage}
@@ -956,6 +957,10 @@ $$\sum_{k=-\infty}^{+\infty} \delta\left(\omega-k \omega_{0}\right)=\frac{1}{\om
 \newpage
 \subsection{سوال هفتم}
 
+تعریف تکیه‌گاه یا \lr{Support}:  به شکل کلی مجموعه‌ای از نقاط که تابع به ازای آن‌ها صفر نباشد را \lr{Support} تابع می‌گویند.
+
+
+
 قضیه را به شکل کلی اثبات می‌کنیم.
 
 تابع را با $f$ و تبدیل فوریه آن را با $F$ نشان می‌دهیم.
@@ -1020,6 +1025,106 @@ $$=u(x) + i v(x)$$
  
  توجه کنید که در صورت سوال \lr{finite} بودن صحبت شده که می توان آن را مشابه \lr{compact} بودن در نظر گرفت ولی با بازه گسترده تر. چون \lr{compact} بودن و \lr{support} هم بر این اساس است که از یک بازه ای به بعد، همه مقادیر صفر بشوند و قبل از لزوما صفر نباشند. در حالت \lr{compact} می‌تواند تعداد این مقادیر بیشمار هم باشد و مثلا یک بازه پیوسته باشد ولی می‌تواند محدود هم باشد و مشکل خاصی از این بابت نیست.
  
+ 
+ اثبات گفته شده در این جا تا حدی اثبات شهودی بود برای اثبات Rigorous ریاضی، بخش هایی از اثبات قضیه موسوم به Amrein-Berthier را می‌آوریم. اثبات کامل قضیه با همه ریزه‌کاری‌ها، فراتر از دانش مطرح شده در این درس است.
+ 
+ برای اثبات ابتدا به قضیه Paley-Weiner توجه می‌کنیم. طبق این قضیه اگر $f$ در فضای لبگ 
+ $L^2(\mathbb{R}^d)$
+ با توپی به شعاع R ساپورت بشود، آن‌گاه تبدیل فوریه مختلط آن یک تابع همگانی (در همه نقاط ناصفر) است که شرط زیر را ارضا می‌کند:
+ $$
+ |\hat{f}(z)| \leqslant C e^{2 \pi R|z|}
+ $$
+ 
+ از روی این قضیه، اثبات می‌شود که اگر هر دوی $f$ و $\hat{f}$ ساپورت Compact داشته باشند، $f=0$ است. زیرا اگر $\hat{f}$ به صورت Compact ساپورت باشد، آنگاه طبق قضیه بالا $f$ محدود سازی یک تابع تحلیلی به $\mathbb{R}$ است. در نتیجه اگر $f$ به صورت Compact ساپورت باشد، همچنان صفر‌های آن ایزوله نیستند و در همه نقاط قرار دارند. پس تحلیلی بودن $f$ نتیجه می‌دهد که $f=0$
+ 
+ خود قضیه Amrein-Berthier، می‌گوید که اگر
+ $f \in L^2(\mathbb{R}^d), E,F \subset \mathbb{R}$
+ بوده و $E,F$ دو Measure متناهی (Finite) باشند، آن‌گاه
+ $$
+ \|f\|_{L^{2}\left(\mathbb{R}^{d}\right)} \leqslant C\left(\|f\|_{L^{2}\left(E^{c}\right)}\|\hat{f}\|_{L^{2}\left(F^{c}\right)}\right)
+ $$
+ 
+ که این دقیقا شکل ریاضیاتی حکمی است که سوال قصد اثبات آن را دارد. در عبارت بالا $C$ فقط وابسته به $E,F,d$ است.
+ 
+ برای اثبات این قضیه از لم دیگری استفاده می‌شود. این لم به این شکل است. فرض کنید 
+ $E,F \subset \mathbb{R^d}$
+ دو Measure متناهی باشند، آن‌گاه
+ اگر وجود داشته باشد $C'$ به طوری که
+ $
+ \operatorname{supp}(f) \subset F \Longrightarrow\|f\|_{2} \leqslant C^{\prime}\|f\|_{L^{2}\left(E^{c}\right)}
+ $
+ 
+ آن‌؛اه وجود دارد ثابت $C$ که به ازای هر $f \in L^2(\mathbb{R}^d)$ داریم:
+ $$
+ \mid f \|_{2} \leqslant C\left(\|f\|_{L^{2}\left(E^{c}\right)}+\|\hat{f}\|_{L^{2}\left(F^{c}\right)}\right.
+ $$
+ 
+ از اثبات این لم صرف نظر می‌کنیم. با فرض درستی این لم، برای اثبات خود قضیه $E,F$ را فیکس کرده و عملگر $T$ را به صورت زیر تعریف می‌کنیم:
+ 
+\makeatletter
+\DeclareRobustCommand\widecheck[1]{{\mathpalette\@widecheck{#1}}}
+\def\@widecheck#1#2{%
+	\setbox\z@\hbox{\m@th$#1#2$}%
+	\setbox\tw@\hbox{\m@th$#1%
+		\widehat{%
+			\vrule\@width\z@\@height\ht\z@
+			\vrule\@height\z@\@width\wd\z@}$}%
+	\dp\tw@-\ht\z@
+	\@tempdima\ht\z@ \advance\@tempdima2\ht\tw@ \divide\@tempdima\thr@@
+	\setbox\tw@\hbox{%
+		\raise\@tempdima\hbox{\scalebox{1}[-1]{\lower\@tempdima\box
+				\tw@}}}%
+	{\ooalign{\box\tw@ \cr \box\z@}}}
+\makeatother
+ $$
+ T f=\chi_{E}\widecheck{\left(\chi_{F} \hat{f}\right)}
+ $$
+ 
+ اگر $L^2$ نرم عملگر $T$ کمتر از $1$ باشد، فرض لم برقرار خواهد بود با
+$$
+C^{\prime}=\frac{1}{1-\|T\|}
+$$
+در نتیجه کافیست نشان بدهیم که 
+$\|T\| <1$.
+
+برای این موضوع باید توجه کرد که $T$ یک انتگرال Hilbert-Schmidt با کرنل
+$$
+K(x, y)=\chi_{E}(x) \hat{\chi}_{F}(y)
+$$
+بوده و نرم $\sigma$ برای انتگرال‌های Hilbert-Schmidt به صورت زیر است:
+
+$$
+\sigma^{2}=\|K\|_{L^{2}\left(\mathbb{R}^{2 d}\right)}^{2}=\int_{\mathbb{R}^{2 d}} \chi_{E}^{2}(x) \chi_{F}^{2}(y) d x d y=|E \| F|
+$$
+
+از این نتیجه می‌شود که $T$ یک عملگر Compact است. با توجه به Compact بودن، نرم $L^2$ عملگر $T$ یک خواهد بود اگر و تنها اگر وجود داشته باشد تابع
+$f \in L^2(\mathbb{R}^d)$
+به طوری که $f$ تحت ساپورت فضای $E$ و $\hat{f}$ تحت ساپورت $F$ باشد. بنابراین عبارت گفته شده در صورت قضیه معادل این است که یک تابع غیرصفر و تبدیل فوریه اش نمی‌توانند هر دو Support ای در یک فضای Finite داشته باشند.
+
+حال می‌دانیم به این که نرم $T$ کمتر از $1$ است یعنی با توجه به این که $T$ حاصلضرب دو Projection و عملگر افکنش است، می‌دانیم نرم $L^2$ آن کمتر از ۱ است. با برهان خلف فرض کنید که 
+$||T|| =1$
+در این صورت
+وجود دارد
+$f \in L^2(\mathbb{R}^2)$
+که
+$\operatorname{supp}(f) \subset E , \operatorname{supp}(\hat{f}) \subset F  $
+
+با تبدیل متناوب $f$ با مقادیر کوچکشونده $2^{-k}$ به مجموعه ای از بی‌نهایت تابع متسقل خطی می‌رسیم که روی مجموعه $E'$ به صورت Compact Support هستند و تبدیل فوریه همه آنان Support ای در $F$ دارد. از این جا نتیجه می‌شود که این توابع، توابع ویژه عملگر $T'$ هستند که با جایگزین کردن $E'$ به جای $E$ در تعریف $T$ و با مقدار ویژه $1$ بدست می‌ایند. اما از آن جایی که $T'$ یک عملگر Compact است، همانند T، فضای ویژه (eigenspace) آن که مقدار ویژه‌های ناصفر دارد، همگی متنهای-بعدی (finite-dimensional) هستند و به تناقض رسیدیم.
+
+پس قضیه Amrein-Berthier اثبات شد.
+
+
+اثبات بالا، در اصل اثبات خیلی ریاضیاتی حکم گفته شده در سوال بود. این اثبات برداشته شده از مقاله
+\lr{THE UNCERTAINTY PRINCIPLE IN HARMONIC ANALYSIS}
+نوشته
+\lr{BLAINE TALBUT}
+بود و لینک دانلود آن در زیر آورده شده است:
+ \href{http://www.math.uchicago.edu/~may/REU2014/REUPapers/Talbut.pdf}{لینک دانلود}
+ 
+ و البته همان طور که مشخص است، از مفاهیم ریاضیاتی بسیار پیشرفته‌تری نسبت به این درس در آن استفاده شده است و من سعی کردم در حد فهم خودم از آن‌ها و به شکل تا حدی مختصرتر و با کمی سرچ در مورد فهم نسبی مفاهیم استفاده شده، آن را در این جا بیاورم.
+ 
+ 
+
  \newpage
  
  \subsection{سوال هشتم}
@@ -1237,11 +1342,27 @@ $
 غیربدیهی است (بدیهی بودن یعنی در همه جا صفر بودن، غیربدیهی یعنی حداقل در بعضی نقاط غیر صفر است).
 
  
+ توجه کنید که در اثبات‌های بالا، بعضا از تعریف ریاضیاتی تبدیل فوریه استفاده کرده‌ایم که در یک ضریب ثابت با تبدیل گفته شده در کتاب اپنهایم فرق دارد ولی در کل فرقی در اصل قضیه ایجاد نمی‌شود.
  
  
+ 
+ منابع استفاده شده:
+ 
+  \href{https://en.wikipedia.org/wiki/Plancherel_theorem}{منبع 1}
 
+ \href{https://en.wikipedia.org/wiki/Parseval\%27s_identity}{منبع 2}
+ 
+  \href{https://en.wikipedia.org/wiki/Parseval\%27s_theorem}{منبع 3}
 
+ \href{https://math.stackexchange.com/questions/2024619/fourier-transform-is-a-bijective-transformation}{منبع 4}
 
+ \href{https://mathworld.wolfram.com/PlancherelsTheorem.html}{منبع 5}
+ 
+  \href{https://mathworld.wolfram.com/ParsevalsTheorem.html}{منبع 6}
+  
+   \href{https://web.stanford.edu/class/ee102/lectures/fourtran}{منبع 7}
+   
+    \href{https://www.cs.uaf.edu/~bueler/M611heaviside.pdf}{منبع 8}
  \newpage
 \section{سوال عملی}
 
